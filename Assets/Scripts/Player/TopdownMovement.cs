@@ -14,7 +14,7 @@ public class TopdownMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        float movementMultiplier = GetComponent<StatsManager>().stats.movementMultiplier;
+        float movementMultiplier = GetComponent<StatsManager>().stats.MovementMultiplier;
         maxMoveSpeed *= movementMultiplier;
         acceleration *= movementMultiplier;
     }

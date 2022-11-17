@@ -12,6 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18b9bb46349a2f84aaba782ecca85f7d, type: 3}
   m_Name: PlayerStats
   m_EditorClassIdentifier: 
-  hp: 100
-  movementMultiplier: 1
-  level: 1
+  MaxHp: 50
+  CurrentHp: 50
+  MovementMultiplier: 1
+  Level: 1
+  HpRegen: 0
+  LifeStealMultiplier: 0
+  CurrentExp: 0
+  ExpNeededToLevel: 0
+  PickupRadius: 0
+  DamageMultiplier: 0
+  CooldownReduction: 0

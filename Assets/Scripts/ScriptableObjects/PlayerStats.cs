@@ -6,15 +6,16 @@ using UnityEngine;
 public class PlayerStats : ScriptableObject
 {
     [Header("Done")]
-    public int hp;
-    public float movementMultiplier = 1F;
-    public int level = 1;
+    public int MaxHp;
+    public int CurrentHp;
+    public float MovementMultiplier = 1F;
+    public int Level = 1;
     [Header("Wip")]
-    public float hpRegen;
-    public float lifeStealMultiplier;
-    public int currentExp;
-    public int expNeededToLevel;
-    public float pickupRadius;
-    public float damageMultiplier;
-    public float cooldownReduction;
+    public float HpRegen;
+    public float LifeStealMultiplier;
+    public int CurrentExp;
+    public int ExpNeededToLevel;
+    public float PickupRadius;
+    public float DamageMultiplier;
+    public float CooldownReduction;
 }
