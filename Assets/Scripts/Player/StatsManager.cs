@@ -12,6 +12,7 @@ public class StatsManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        stats = Instantiate(stats);
         healthBarSlider = transform.Find("Canvas/HealthBar").GetComponent<Slider>();
         Initialise();
     }
