@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dab3f420b92625242b8fa30af54f9a24, type: 3}
   m_Name: BasicEnemyStats
   m_EditorClassIdentifier: 
-  MaxHp: 0
-  CurrentHp: 0
+  MaxHp: 50
+  CurrentHp: 50
   Damage: 0
   NumOfOrbsToDrop: 0
   MovementSpeed: 0

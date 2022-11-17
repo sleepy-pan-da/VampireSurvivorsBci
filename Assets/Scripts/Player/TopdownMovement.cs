@@ -11,15 +11,13 @@ public class TopdownMovement : MonoBehaviour
     private float acceleration;
     private Vector3 velocity = Vector3.zero;
 
-    // Start is called before the first frame update
     void Start()
     {
-        float movementMultiplier = GetComponent<StatsManager>().stats.MovementMultiplier;
+        float movementMultiplier = GetComponent<PlayerStatsManager>().stats.MovementMultiplier;
         maxMoveSpeed *= movementMultiplier;
         acceleration *= movementMultiplier;
     }
 
-    // Update is called once per frame
     void Update()
     {
         Move();

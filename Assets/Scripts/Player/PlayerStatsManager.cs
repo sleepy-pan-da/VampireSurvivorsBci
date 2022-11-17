@@ -4,12 +4,11 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
 
-public class StatsManager : MonoBehaviour
+public class PlayerStatsManager : MonoBehaviour
 {
     public PlayerStats stats;
     private Slider healthBarSlider;
 
-    // Start is called before the first frame update
     void Start()
     {
         stats = Instantiate(stats);
@@ -23,18 +22,17 @@ public class StatsManager : MonoBehaviour
         UpdateHealthBar(healthBarSlider.maxValue);
     }
 
-    // Update is called once per frame
     void Update()
     {
         // Testing purposes
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
-        {
-            TakeDamage(10);
-        }
-        else if (Input.GetKeyDown(KeyCode.RightArrow))
-        {
-            GainHp(10);
-        }
+        // if (Input.GetKeyDown(KeyCode.LeftArrow))
+        // {
+        //     TakeDamage(10);
+        // }
+        // else if (Input.GetKeyDown(KeyCode.RightArrow))
+        // {
+        //     GainHp(10);
+        // }
     }
 
     void TakeDamage(int damage)
