@@ -1,11 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class CollisionManager : MonoBehaviour
 {
-    void OnCollisionEnter2D(Collision2D collsion)
+    public event Action<int> OnTakenDamageFromEnemy;
+    void OnCollisionStay2D(Collision2D collision)
     {
-        Debug.Log("I collided into something?");
+        if (collision.gameObject.tag == "Enemy")
+        {
+            OnTakenDamageFromEnemy?.Invoke(collision.gameObject.GetComponent<EnemyStatsManager>().stats.Damage);
+        }
     }
 }

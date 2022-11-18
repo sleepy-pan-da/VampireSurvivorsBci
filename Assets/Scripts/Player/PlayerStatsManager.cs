@@ -12,14 +12,14 @@ public class PlayerStatsManager : MonoBehaviour
     void Start()
     {
         stats = Instantiate(stats);
+        // Initialising hp bar
         healthBarSlider = transform.Find("Canvas/HealthBar").GetComponent<Slider>();
-        Initialise();
-    }
-
-    void Initialise()
-    {
         healthBarSlider.maxValue = (float)stats.MaxHp;
         UpdateHealthBar(healthBarSlider.maxValue);
+
+        // Subscribing to collisionManager
+        CollisionManager collisionManager = GetComponent<CollisionManager>();
+        collisionManager.OnTakenDamageFromEnemy += TakeDamage;
     }
 
     void Update()
@@ -39,6 +39,10 @@ public class PlayerStatsManager : MonoBehaviour
     {
         stats.CurrentHp = Mathf.Max(0, stats.CurrentHp - damage);
         UpdateHealthBar(stats.CurrentHp);
+        if (stats.CurrentHp == 0)
+        {
+            Destroy(gameObject);
+        }
     }
 
     void GainHp(int hpGained)
