@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1895128876322567915}
   - component: {fileID: 1895128876322567916}
   - component: {fileID: 339765975}
+  - component: {fileID: 232781684820675755}
   m_Layer: 0
   m_Name: BaseEnemy
   m_TagString: Untagged
@@ -97,3 +98,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stats: {fileID: 0}
   expOrb: {fileID: 3417688369643933893, guid: 50da73e1f3fd9e4468e7109ce140ef4c, type: 3}
+--- !u!50 &232781684820675755
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1895128876322567917}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 1
+  m_UseAutoMass: 0
+  m_Mass: 10
+  m_LinearDrag: 100
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 1
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4

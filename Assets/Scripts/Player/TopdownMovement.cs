@@ -9,6 +9,7 @@ public class TopdownMovement : MonoBehaviour
     private float maxMoveSpeed;
     [SerializeField]
     private float acceleration;
+    private Rigidbody2D rb;
     private Vector3 velocity = Vector3.zero;
 
     void Start()
@@ -16,6 +17,8 @@ public class TopdownMovement : MonoBehaviour
         float movementMultiplier = GetComponent<PlayerStatsManager>().stats.MovementMultiplier;
         maxMoveSpeed *= movementMultiplier;
         acceleration *= movementMultiplier;
+
+        rb = GetComponent<Rigidbody2D>();
     }
 
     void Update()
@@ -31,9 +34,6 @@ public class TopdownMovement : MonoBehaviour
         int movingDown = Convert.ToInt32(Input.GetKey(KeyCode.S));
         Vector3 direction = new Vector3(movingRight - movingLeft, movingUp - movingDown, 0).normalized;
         velocity = Vector3.MoveTowards(velocity, maxMoveSpeed * direction, acceleration * Time.deltaTime);
-        transform.Translate(velocity * Time.deltaTime);
-
-        // Constant speed, no acceleration implementation
-        //transform.Translate(direction * maxMoveSpeed * Time.deltaTime);
+        rb.velocity = velocity;
     }
 }
