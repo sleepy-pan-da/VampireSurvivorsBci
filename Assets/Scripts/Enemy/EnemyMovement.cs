@@ -6,15 +6,18 @@ public class EnemyMovement : MonoBehaviour
 {
     private Transform playerTransform;
     private int speed;
+    private Rigidbody2D rb;
     
     void Start()
     {
-        playerTransform = GameObject.FindWithTag("Player").transform; 
+        playerTransform = GameObject.FindWithTag("Player")?.transform; 
         speed = GetComponent<EnemyStatsManager>().Stats.MovementSpeed;
+
+        rb = GetComponent<Rigidbody2D>();
     }
 
 
-    void Update()
+    void FixedUpdate()
     {
         FollowPlayer();
     }
@@ -23,6 +26,7 @@ public class EnemyMovement : MonoBehaviour
     {
         if (playerTransform == null) return;
         float step = speed * Time.deltaTime;
-        transform.position = Vector2.MoveTowards(transform.position, playerTransform.position, step);
+        Vector2 desiredPosition = Vector2.MoveTowards(transform.position, playerTransform.position, step);
+        rb.MovePosition(desiredPosition);
     }
 }

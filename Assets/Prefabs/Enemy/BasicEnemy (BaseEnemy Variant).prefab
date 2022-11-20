@@ -8,20 +8,15 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 339765975, guid: fdd2e924ad240a548886bc6497e1d042, type: 3}
+      propertyPath: Stats
+      value: 
+      objectReference: {fileID: 11400000, guid: 4065ae68dbf01cb43851b852deefd67f,
+        type: 2}
+    - target: {fileID: 339765975, guid: fdd2e924ad240a548886bc6497e1d042, type: 3}
       propertyPath: stats
       value: 
       objectReference: {fileID: 11400000, guid: 4065ae68dbf01cb43851b852deefd67f,
         type: 2}
-    - target: {fileID: 232781684820675755, guid: fdd2e924ad240a548886bc6497e1d042,
-        type: 3}
-      propertyPath: m_Mass
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 232781684820675755, guid: fdd2e924ad240a548886bc6497e1d042,
-        type: 3}
-      propertyPath: m_CollisionDetection
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1895128876322567915, guid: fdd2e924ad240a548886bc6497e1d042,
         type: 3}
       propertyPath: m_RootOrder
