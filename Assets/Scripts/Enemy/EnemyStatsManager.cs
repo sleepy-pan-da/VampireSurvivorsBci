@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class EnemyStatsManager : MonoBehaviour
 {
-    public EnemyStats stats;
+    public EnemyStats Stats;
     [SerializeField]
     private GameObject expOrb;
 
     void Start()
     {
-        stats = Instantiate(stats);
+        Stats = Instantiate(Stats);
     }
 
     void Update()
@@ -24,8 +24,8 @@ public class EnemyStatsManager : MonoBehaviour
 
     void TakeDamage(int damage)
     {
-        stats.CurrentHp = Mathf.Max(0, stats.CurrentHp - damage);
-        if (stats.CurrentHp == 0)
+        Stats.CurrentHp = Mathf.Max(0, Stats.CurrentHp - damage);
+        if (Stats.CurrentHp == 0)
         {
             Instantiate(expOrb, transform.position, transform.rotation);
             Destroy(gameObject);

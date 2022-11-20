@@ -14,7 +14,7 @@ public class TopdownMovement : MonoBehaviour
 
     void Start()
     {
-        float movementMultiplier = GetComponent<PlayerStatsManager>().stats.MovementMultiplier;
+        float movementMultiplier = GetComponent<PlayerStatsManager>().Stats.MovementMultiplier;
         maxMoveSpeed *= movementMultiplier;
         acceleration *= movementMultiplier;
 

@@ -10,7 +10,7 @@ public class CollisionManager : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy")
         {
-            OnTakenDamageFromEnemy?.Invoke(collision.gameObject.GetComponent<EnemyStatsManager>().stats.Damage);
+            OnTakenDamageFromEnemy?.Invoke(collision.gameObject.GetComponent<EnemyStatsManager>().Stats.Damage);
         }
     }
 }

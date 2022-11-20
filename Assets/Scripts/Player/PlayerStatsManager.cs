@@ -6,18 +6,18 @@ using UnityEngine.Events;
 
 public class PlayerStatsManager : MonoBehaviour
 {
-    public PlayerStats stats;
+    public PlayerStats Stats;
     private Slider healthBarSlider;
 
     void Start()
     {
-        stats = Instantiate(stats);
+        Stats = Instantiate(Stats);
         // Initialising hp bar
         healthBarSlider = transform.Find("Canvas/HealthBar").GetComponent<Slider>();
-        healthBarSlider.maxValue = (float)stats.MaxHp;
+        healthBarSlider.maxValue = (float)Stats.MaxHp;
         UpdateHealthBar(healthBarSlider.maxValue);
 
-        // Subscribing to collisionManager
+        // Subscribe to collisionManager
         CollisionManager collisionManager = GetComponent<CollisionManager>();
         collisionManager.OnTakenDamageFromEnemy += TakeDamage;
     }
@@ -37,9 +37,9 @@ public class PlayerStatsManager : MonoBehaviour
 
     void TakeDamage(int damage)
     {
-        stats.CurrentHp = Mathf.Max(0, stats.CurrentHp - damage);
-        UpdateHealthBar(stats.CurrentHp);
-        if (stats.CurrentHp == 0)
+        Stats.CurrentHp = Mathf.Max(0, Stats.CurrentHp - damage);
+        UpdateHealthBar(Stats.CurrentHp);
+        if (Stats.CurrentHp == 0)
         {
             Destroy(gameObject);
         }
@@ -47,8 +47,8 @@ public class PlayerStatsManager : MonoBehaviour
 
     void GainHp(int hpGained)
     {
-        stats.CurrentHp = Mathf.Min(stats.CurrentHp + hpGained, stats.MaxHp);
-        UpdateHealthBar(stats.CurrentHp);
+        Stats.CurrentHp = Mathf.Min(Stats.CurrentHp + hpGained, Stats.MaxHp);
+        UpdateHealthBar(Stats.CurrentHp);
     }
 
     void UpdateHealthBar(float newValue)
