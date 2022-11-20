@@ -12,6 +12,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 4065ae68dbf01cb43851b852deefd67f,
         type: 2}
+    - target: {fileID: 232781684820675755, guid: fdd2e924ad240a548886bc6497e1d042,
+        type: 3}
+      propertyPath: m_Mass
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 232781684820675755, guid: fdd2e924ad240a548886bc6497e1d042,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1895128876322567915, guid: fdd2e924ad240a548886bc6497e1d042,
         type: 3}
       propertyPath: m_RootOrder
@@ -107,3 +117,15 @@ CapsuleCollider2D:
   m_Offset: {x: 0.006092608, y: -0.27122247}
   m_Size: {x: 1.2079605, y: 1.6100729}
   m_Direction: 0
+--- !u!114 &6714876738360236816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3361951905897628908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a02fc7f4cc3ff1945a8006cc672d6fda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

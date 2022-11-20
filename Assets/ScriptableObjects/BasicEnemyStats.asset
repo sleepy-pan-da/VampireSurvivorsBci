@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxHp: 50
   CurrentHp: 50
-  Damage: 0
+  Damage: 1
   NumOfOrbsToDrop: 0
-  MovementSpeed: 0
+  MovementSpeed: 3
