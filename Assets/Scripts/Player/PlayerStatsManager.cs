@@ -17,9 +17,11 @@ public class PlayerStatsManager : MonoBehaviour
         healthBarSlider.maxValue = (float)Stats.MaxHp;
         UpdateHealthBar(healthBarSlider.maxValue);
 
-        // Subscribe to collisionManager
+        // Subscribed classes
         CollisionManager collisionManager = GetComponent<CollisionManager>();
         collisionManager.OnTakenDamageFromEnemy += TakeDamage;
+
+        ExpOrb.OnCollectedExpOrb += GainExp;
     }
 
     void Update()
@@ -49,6 +51,11 @@ public class PlayerStatsManager : MonoBehaviour
     {
         Stats.CurrentHp = Mathf.Min(Stats.CurrentHp + hpGained, Stats.MaxHp);
         UpdateHealthBar(Stats.CurrentHp);
+    }
+
+    void GainExp(int expGained)
+    {
+        Stats.CurrentExp = Mathf.Min(Stats.CurrentExp + expGained, Stats.ExpNeededToLevel);
     }
 
     void UpdateHealthBar(float newValue)
