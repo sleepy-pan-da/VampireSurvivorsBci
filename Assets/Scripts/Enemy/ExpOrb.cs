@@ -11,7 +11,7 @@ public class ExpOrb : MonoBehaviour
     [SerializeField]
     private float moveSpeed = 10f;
 
-    public static event Action<int> OnCollectedExpOrb;
+    public static event Action<int> OnCollectedExpOrb; // int -> exp earned
 
     private void Start()
     {
