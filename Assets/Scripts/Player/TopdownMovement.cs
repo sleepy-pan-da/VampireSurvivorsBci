@@ -9,8 +9,13 @@ public class TopdownMovement : MonoBehaviour
     private float maxMoveSpeed;
     [SerializeField]
     private float acceleration;
+    [SerializeField]
+    private Animator animator;
+    [SerializeField]
+    private SpriteRenderer spriteRenderer;
     private Rigidbody2D rb;
     private Vector3 velocity = Vector3.zero;
+    
 
     void Start()
     {
@@ -33,6 +38,14 @@ public class TopdownMovement : MonoBehaviour
         int movingUp = Convert.ToInt32(Input.GetKey(KeyCode.W));
         int movingDown = Convert.ToInt32(Input.GetKey(KeyCode.S));
         Vector3 direction = new Vector3(movingRight - movingLeft, movingUp - movingDown, 0).normalized;
+        
+        // Update sprite based on direction
+        animator.SetBool("Moving", direction != Vector3.zero);
+        if (direction != Vector3.zero)
+        {
+            spriteRenderer.flipX = direction.x < 0;
+        }
+
         velocity = Vector3.MoveTowards(velocity, maxMoveSpeed * direction, acceleration * Time.deltaTime);
         rb.velocity = velocity;
     }
