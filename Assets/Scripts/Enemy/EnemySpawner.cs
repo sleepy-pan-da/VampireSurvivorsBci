@@ -5,7 +5,9 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     [SerializeField]
-    private GameObject basicEnemy;
+    private GameObject spawnIndicator;
+    [SerializeField]
+    private GameObject enemy;
     [Header("X and Y refers to width and height")]
 
     [SerializeField]
@@ -19,6 +21,7 @@ public class EnemySpawner : MonoBehaviour
     private void SpawnEnemy()
     {
         Vector3 spawnPosition = new Vector3(Random.Range(-spawnArea.x/2, spawnArea.x/2),Random.Range(-spawnArea.y/2, spawnArea.y/2), 0);
-        Instantiate(basicEnemy, spawnPosition, transform.rotation);
+        GameObject newSpawnIndicator = Instantiate(spawnIndicator, spawnPosition, transform.rotation);
+        newSpawnIndicator.GetComponent<SpawnIndicator>().EnemySpawned = enemy;
     } 
 }

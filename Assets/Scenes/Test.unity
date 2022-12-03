@@ -12857,9 +12857,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07db1103136196d4e89befaeb4ac1f57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  basicEnemy: {fileID: 3361951905897628908, guid: 35e432ec7f671e94bb3c98185a2eb54e,
+  spawnIndicator: {fileID: 2063280931129063652, guid: 3efcc732a1a3a0b4ca31b9b949bd875a,
     type: 3}
-  spawnArea: {x: 36, y: 18}
+  enemy: {fileID: 3361951905897628908, guid: 35e432ec7f671e94bb3c98185a2eb54e, type: 3}
+  spawnArea: {x: 36, y: 16}
 --- !u!1 &1575832664
 GameObject:
   m_ObjectHideFlags: 0
