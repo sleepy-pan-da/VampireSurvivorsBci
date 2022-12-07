@@ -15,7 +15,18 @@ public class EnemySpawner : MonoBehaviour
 
     void Start()
     {
-        InvokeRepeating("SpawnEnemy", 0f, 1f);
+        PlayerStatsManager.OnDeath += StopSpawning;
+        StartSpawning();
+    }
+
+    private void StartSpawning()
+    {
+        InvokeRepeating("SpawnEnemy", 0f, 1f); 
+    }
+
+    private void StopSpawning()
+    {
+        CancelInvoke();
     }
 
     private void SpawnEnemy()

@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
+using System;
 
 public class PlayerStatsManager : MonoBehaviour
 {
     public PlayerStats Stats;
+    public static event Action OnDeath;
+
     private Slider healthBarSlider;
     [SerializeField]
     private Slider expBarSlider;
@@ -38,6 +41,7 @@ public class PlayerStatsManager : MonoBehaviour
         UpdateHealthBar(Stats.CurrentHp);
         if (Stats.CurrentHp == 0)
         {
+            OnDeath?.Invoke();
             Destroy(gameObject);
         }
     }
