@@ -6,8 +6,10 @@ using UnityEngine;
 public class TopdownMovement : MonoBehaviour
 {
     [SerializeField]
-    private float maxMoveSpeed;
+    private float origMaxMoveSpeed;
     [SerializeField]
+    private float origAcceleration;
+    private float maxMoveSpeed;
     private float acceleration;
     [SerializeField]
     private Animator animator;
@@ -17,21 +19,18 @@ public class TopdownMovement : MonoBehaviour
     private Vector3 velocity = Vector3.zero;
     
 
-    void Start()
+    private void Start()
     {
-        float movementMultiplier = PlayerStatsManager.Stats.MovementMultiplier;
-        maxMoveSpeed *= movementMultiplier;
-        acceleration *= movementMultiplier;
-
+        SetMovementBasedOnStats();
         rb = GetComponent<Rigidbody2D>();
     }
 
-    void Update()
+    private void Update()
     {
         Move();
     }
 
-    void Move()
+    private void Move()
     {
         int movingRight = Convert.ToInt32(Input.GetKey(KeyCode.D));
         int movingLeft = Convert.ToInt32(Input.GetKey(KeyCode.A));
@@ -49,4 +48,11 @@ public class TopdownMovement : MonoBehaviour
         velocity = Vector3.MoveTowards(velocity, maxMoveSpeed * direction, acceleration * Time.deltaTime);
         rb.velocity = velocity;
     }
+
+    public void SetMovementBasedOnStats()
+    {
+        float movementMultiplier = PlayerStatsManager.Stats.MovementSpeedMultiplier;
+        maxMoveSpeed = origMaxMoveSpeed * movementMultiplier;
+        acceleration = origAcceleration * movementMultiplier;
+    } 
 }

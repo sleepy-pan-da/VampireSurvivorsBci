@@ -18,8 +18,8 @@ MonoBehaviour:
   Level: 1
   CurrentExp: 0
   ExpNeededToLevel: 10
+  DamageMultiplier: 1
   HpRegen: 0
   LifeStealMultiplier: 0
   PickupRadius: 0
-  DamageMultiplier: 0
   CooldownReduction: 0

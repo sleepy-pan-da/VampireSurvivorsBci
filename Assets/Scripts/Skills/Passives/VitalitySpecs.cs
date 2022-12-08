@@ -6,6 +6,7 @@ public class VitalitySpecs : PassiveSpecifications
 {
     public override void Compute()
     {
-        PlayerStatsManager.Stats.MaxHp = (int)(PlayerStatsManager.Stats.MaxHp * 1.1f);
+        int newMaxHp = (int)(PlayerStatsManager.Stats.MaxHp * 2f);
+        PlayerStatsManager.Stats.SetMaxHp(newMaxHp);
     }
 }

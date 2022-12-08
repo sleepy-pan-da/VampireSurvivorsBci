@@ -13,6 +13,10 @@ public class UpgradeUI : MonoBehaviour
         // for testing purposes
         IEnumerator coroutine = MockSelectSkill("Vitality");
         StartCoroutine(coroutine);
+        coroutine = MockSelectSkill("Determination");
+        StartCoroutine(coroutine);
+        coroutine = MockSelectSkill("Lightfooted");
+        StartCoroutine(coroutine);
     }
 
     // for testing purposes

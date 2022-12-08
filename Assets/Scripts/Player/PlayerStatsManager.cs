@@ -17,6 +17,7 @@ public class PlayerStatsManager : MonoBehaviour
     private Slider healthBarSlider;
     [SerializeField]
     private Slider expBarSlider;
+    private TopdownMovement topdownMovement;
 
     void Start()
     {
@@ -25,7 +26,7 @@ public class PlayerStatsManager : MonoBehaviour
         
         // Initialising hp bar
         healthBarSlider = transform.Find("Canvas/HealthBar").GetComponent<Slider>();
-        healthBarSlider.maxValue = (float)Stats.MaxHp;
+        UpdateHealthBarMaxValue();
         UpdateHealthBar(healthBarSlider.maxValue);
 
         // Initialising exp bar
@@ -34,11 +35,16 @@ public class PlayerStatsManager : MonoBehaviour
             InitialiseExpBar();
         }
 
+        topdownMovement = GetComponent<TopdownMovement>();
+
         // Subscribed classes
         CollisionManager collisionManager = GetComponent<CollisionManager>();
         collisionManager.OnTakenDamageFromEnemy += TakeDamage;
 
         ExpOrb.OnCollectedExpOrb += GainExp;
+
+        PlayerStats.OnChangedMaxHp += UpdateHealthBarMaxValue;
+        PlayerStats.OnChangedMovementSpeedMultiplier += topdownMovement.SetMovementBasedOnStats;
     }
 
     void TakeDamage(int damage)
@@ -73,6 +79,12 @@ public class PlayerStatsManager : MonoBehaviour
     {
         healthBarSlider.value = newValue;
     }
+
+    void UpdateHealthBarMaxValue()
+    {
+        healthBarSlider.maxValue = (float)Stats.MaxHp;
+    }
+
     void InitialiseExpBar()
     {
         expBarSlider.maxValue = Stats.ExpNeededToLevel;

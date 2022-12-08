@@ -17,6 +17,7 @@ public class SpawnIndicator : MonoBehaviour
     public void FinishedAnimation()
     {
         Instantiate(EnemySpawned, transform.position, transform.rotation);
+        Destroy(gameObject);
     }
 
 }
