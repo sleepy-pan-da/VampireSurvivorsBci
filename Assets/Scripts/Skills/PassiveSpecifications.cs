@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class PassiveSpecifications : MonoBehaviour
+public abstract class PassiveSpecifications : MonoBehaviour
 {
-    
+    public abstract void Compute();
 }

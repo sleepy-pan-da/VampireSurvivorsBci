@@ -7,7 +7,11 @@ using System;
 
 public class PlayerStatsManager : MonoBehaviour
 {
-    public PlayerStats Stats;
+    [SerializeField]
+    private PlayerStats statsToInsert;
+    public static PlayerStats Stats;
+    [SerializeField]
+    private PlayerStats statsDebug;
     public static event Action OnDeath;
 
     private Slider healthBarSlider;
@@ -16,7 +20,9 @@ public class PlayerStatsManager : MonoBehaviour
 
     void Start()
     {
-        Stats = Instantiate(Stats);
+        Stats = Instantiate(statsToInsert);
+        statsDebug = Stats;
+        
         // Initialising hp bar
         healthBarSlider = transform.Find("Canvas/HealthBar").GetComponent<Slider>();
         healthBarSlider.maxValue = (float)Stats.MaxHp;

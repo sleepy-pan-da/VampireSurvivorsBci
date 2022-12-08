@@ -11,7 +11,7 @@ public class UpgradeUI : MonoBehaviour
     private void Start()
     {
         // for testing purposes
-        IEnumerator coroutine = MockSelectSkill("Active1");
+        IEnumerator coroutine = MockSelectSkill("Vitality");
         StartCoroutine(coroutine);
     }
 

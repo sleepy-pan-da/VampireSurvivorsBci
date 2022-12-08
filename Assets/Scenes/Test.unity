@@ -12725,7 +12725,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 160c67ae148228b4c9a5ead2bdc9dacd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Stats: {fileID: 11400000, guid: 04d03e6b05877d345aa1e5613156f008, type: 2}
+  statsToInsert: {fileID: 11400000, guid: 04d03e6b05877d345aa1e5613156f008, type: 2}
+  statsDebug: {fileID: 0}
   expBarSlider: {fileID: 1406236851}
 --- !u!114 &1338665232
 MonoBehaviour:

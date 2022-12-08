@@ -24,6 +24,8 @@ public class SkillDB : MonoBehaviour
 
         if (skillDict[updatedSkill].GetType() == typeof(Passive))
         {
+            Passive skill = (Passive)skillDict[updatedSkill];
+            skill.Specifications.Compute();
             // Compute stats according to PassiveSpecifications
         }
         else

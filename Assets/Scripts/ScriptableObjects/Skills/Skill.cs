@@ -6,6 +6,7 @@ public class Skill : ScriptableObject
 {
     public string Name;
     public string Description;
+
 }
 
 
