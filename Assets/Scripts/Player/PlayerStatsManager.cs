@@ -19,7 +19,7 @@ public class PlayerStatsManager : MonoBehaviour
     private Slider expBarSlider;
     private TopdownMovement topdownMovement;
 
-    void Start()
+    private void Start()
     {
         Stats = Instantiate(statsToInsert);
         statsDebug = Stats;
@@ -30,10 +30,7 @@ public class PlayerStatsManager : MonoBehaviour
         UpdateHealthBar(healthBarSlider.maxValue);
 
         // Initialising exp bar
-        if (expBarSlider)
-        {
-            InitialiseExpBar();
-        }
+        if (expBarSlider) InitialiseExpBar();
 
         topdownMovement = GetComponent<TopdownMovement>();
 
@@ -45,9 +42,11 @@ public class PlayerStatsManager : MonoBehaviour
 
         PlayerStats.OnChangedMaxHp += UpdateHealthBarMaxValue;
         PlayerStats.OnChangedMovementSpeedMultiplier += topdownMovement.SetMovementBasedOnStats;
+
+        StartCoroutine(RegenHp());
     }
 
-    void TakeDamage(int damage)
+    private void TakeDamage(int damage)
     {
         Stats.TakeDamage(damage);
         UpdateHealthBar(Stats.CurrentHp);
@@ -58,13 +57,22 @@ public class PlayerStatsManager : MonoBehaviour
         }
     }
 
-    void GainHp(int hpGained)
+    private IEnumerator RegenHp()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(0.5f);
+            GainHp(Stats.HpRegen);
+        }
+    }
+
+    private void GainHp(int hpGained)
     {
         Stats.GainHp(hpGained);
         UpdateHealthBar(Stats.CurrentHp);
     }
 
-    void GainExp(int expGained)
+    private void GainExp(int expGained)
     {
         Stats.GainExp(expGained);
         UpdateExpBar(Stats.CurrentExp);
@@ -75,23 +83,23 @@ public class PlayerStatsManager : MonoBehaviour
         }
     }
 
-    void UpdateHealthBar(float newValue)
+    private void UpdateHealthBar(float newValue)
     {
         healthBarSlider.value = newValue;
     }
 
-    void UpdateHealthBarMaxValue()
+    private void UpdateHealthBarMaxValue()
     {
         healthBarSlider.maxValue = (float)Stats.MaxHp;
     }
 
-    void InitialiseExpBar()
+    private void InitialiseExpBar()
     {
         expBarSlider.maxValue = Stats.ExpNeededToLevel;
         UpdateExpBar(0);
     }
 
-    void UpdateExpBar(int newValue)
+    private void UpdateExpBar(int newValue)
     {
         expBarSlider.value = newValue;
     }

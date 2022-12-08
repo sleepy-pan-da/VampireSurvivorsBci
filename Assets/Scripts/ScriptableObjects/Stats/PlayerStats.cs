@@ -14,9 +14,9 @@ public class PlayerStats : ScriptableObject
     public int CurrentExp;
     public int ExpNeededToLevel;
     public float DamageMultiplier;
+    public int HpRegen;
 
     [Header("Wip")]
-    public float HpRegen;
     public float LifeStealMultiplier;
     public float PickupRadius;
     public float CooldownReduction;
