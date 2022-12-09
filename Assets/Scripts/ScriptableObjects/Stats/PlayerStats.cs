@@ -47,6 +47,11 @@ public class PlayerStats : ScriptableObject
         OnChangedMovementSpeedMultiplier?.Invoke();
     }
 
+    public void SetHpRegen(int newHpRegen)
+    {
+        HpRegen = newHpRegen;
+    }
+
     public void TakeDamage(int damage)
     {
         CurrentHp = Mathf.Max(0, CurrentHp - damage);

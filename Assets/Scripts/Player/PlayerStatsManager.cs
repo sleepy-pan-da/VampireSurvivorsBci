@@ -61,7 +61,7 @@ public class PlayerStatsManager : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(1f);
             GainHp(Stats.HpRegen);
         }
     }
