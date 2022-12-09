@@ -18,6 +18,7 @@ public class PlayerStatsManager : MonoBehaviour
     [SerializeField]
     private Slider expBarSlider;
     private TopdownMovement topdownMovement;
+    private Magnet magnet;
 
     private void Start()
     {
@@ -34,6 +35,9 @@ public class PlayerStatsManager : MonoBehaviour
 
         topdownMovement = GetComponent<TopdownMovement>();
 
+        magnet = transform.Find("MagnetCollider").GetComponent<Magnet>();
+        magnet.setCircleColliderRadius();
+
         // Subscribed classes
         CollisionManager collisionManager = GetComponent<CollisionManager>();
         collisionManager.OnTakenDamageFromEnemy += TakeDamage;
@@ -42,6 +46,7 @@ public class PlayerStatsManager : MonoBehaviour
 
         PlayerStats.OnChangedMaxHp += UpdateHealthBarMaxValue;
         PlayerStats.OnChangedMovementSpeedMultiplier += topdownMovement.SetMovementBasedOnStats;
+        PlayerStats.OnChangedPickupRadiusMultiplier += magnet.setCircleColliderRadius;
 
         StartCoroutine(RegenHp());
     }

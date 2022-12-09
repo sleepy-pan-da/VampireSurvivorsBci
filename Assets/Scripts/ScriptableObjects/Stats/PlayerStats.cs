@@ -15,14 +15,15 @@ public class PlayerStats : ScriptableObject
     public int ExpNeededToLevel;
     public float DamageMultiplier;
     public int HpRegen;
+    public float PickupRadiusMultiplier;
 
     [Header("Wip")]
     public float LifeStealMultiplier;
-    public float PickupRadius;
     public float CooldownReduction;
 
     public static event Action OnChangedMaxHp;
     public static event Action OnChangedMovementSpeedMultiplier;
+    public static event Action OnChangedPickupRadiusMultiplier;
 
     public void GainHp(int hpGained)
     {
@@ -50,6 +51,12 @@ public class PlayerStats : ScriptableObject
     public void SetHpRegen(int newHpRegen)
     {
         HpRegen = newHpRegen;
+    }
+
+    public void SetPickupRadiusMultiplier(float newPickupRadiusMultiplier)
+    {
+        PickupRadiusMultiplier = newPickupRadiusMultiplier;
+        OnChangedPickupRadiusMultiplier?.Invoke();
     }
 
     public void TakeDamage(int damage)

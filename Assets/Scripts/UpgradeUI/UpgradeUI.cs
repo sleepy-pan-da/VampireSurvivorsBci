@@ -15,6 +15,7 @@ public class UpgradeUI : MonoBehaviour
         StartCoroutine(MockSelectSkill("Determination"));
         StartCoroutine(MockSelectSkill("Lightfooted"));
         StartCoroutine(MockSelectSkill("Resilience"));
+        StartCoroutine(MockSelectSkill("Magnet"));
     }
 
     // for testing purposes

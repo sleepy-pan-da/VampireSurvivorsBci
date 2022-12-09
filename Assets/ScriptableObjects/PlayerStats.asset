@@ -20,6 +20,6 @@ MonoBehaviour:
   ExpNeededToLevel: 10
   DamageMultiplier: 1
   HpRegen: 1
+  PickupRadiusMultiplier: 1
   LifeStealMultiplier: 0
-  PickupRadius: 0
   CooldownReduction: 0
