@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ResilienceSpecs : PassiveSpecifications
 {
-    public override void Compute()
+    public override void Compute(int level)
     {
         int newHpRegen = PlayerStatsManager.Stats.HpRegen + 1;
         PlayerStatsManager.Stats.SetHpRegen(newHpRegen);

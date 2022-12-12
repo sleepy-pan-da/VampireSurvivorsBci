@@ -5,5 +5,5 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Active", menuName = "Skill/Active")]
 public class Active : Skill
 {
-    public GameObject SkillPrefab;
+    public ActiveSpecifications SkillPrefab;
 }

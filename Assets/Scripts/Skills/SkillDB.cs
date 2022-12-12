@@ -7,6 +7,7 @@ public class SkillDB : MonoBehaviour
 {
     [SerializeField]
     private Transform activeSkillsHeld;
+    private ActiveSkillsManager activeSkillsManager;
     [SerializeField]
     private Skill[] skills;
     private Dictionary<string, Skill> skillDict = new Dictionary<string, Skill>();
@@ -15,6 +16,7 @@ public class SkillDB : MonoBehaviour
     {
         foreach (Skill skill in skills) skillDict.Add(skill.Name, skill);
         Loadout.OnUpdatedSkillLevel += SetUpSkill;
+        activeSkillsManager = activeSkillsHeld.GetComponent<ActiveSkillsManager>();
     }
 
     private void SetUpSkill(string updatedSkill, int skillLevel)
@@ -28,7 +30,7 @@ public class SkillDB : MonoBehaviour
         if (skillDict[updatedSkill].GetType() == typeof(Passive))
         {
             Passive skill = (Passive)skillDict[updatedSkill];
-            skill.Specifications.Compute();
+            skill.Specifications.Compute(skillLevel);
         }
         else
         {
@@ -37,12 +39,14 @@ public class SkillDB : MonoBehaviour
             {
                 // instantiate active skill prefab and attach to player gameobject
                 Active skill = (Active)skillDict[updatedSkill];
-                Instantiate(skill.SkillPrefab, activeSkillsHeld.position, activeSkillsHeld.rotation, activeSkillsHeld);
+                ActiveSpecifications instance = Instantiate(skill.SkillPrefab, activeSkillsHeld.position, activeSkillsHeld.rotation, activeSkillsHeld);
+                activeSkillsManager.skillDict.Add(updatedSkill, instance);
             }
             else
             {
                 // notify the active skill attached to player of updated level
                 // attached active skill will perform according to updated level (higher damage, lower cooldown etc)
+                activeSkillsManager.UpdateActiveSkill(updatedSkill, skillLevel);
             }
         }
     }

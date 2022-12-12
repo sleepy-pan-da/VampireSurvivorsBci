@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Intimidation
   Description: Damages nearby enemies
-  SkillPrefab: {fileID: 658103132871312776, guid: 2c8b5774fc1998f4b96cca2f5cfc615b,
+  MaxLevel: 0
+  SkillPrefab: {fileID: 6533983196017113246, guid: 2c8b5774fc1998f4b96cca2f5cfc615b,
     type: 3}

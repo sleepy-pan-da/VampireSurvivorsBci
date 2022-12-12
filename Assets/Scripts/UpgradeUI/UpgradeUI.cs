@@ -17,12 +17,19 @@ public class UpgradeUI : MonoBehaviour
         StartCoroutine(MockSelectSkill("Resilience"));
         StartCoroutine(MockSelectSkill("Magnet"));
         StartCoroutine(MockSelectSkill("Intimidation"));
+        StartCoroutine(MockSelectSkill("Intimidation",0.2f));
+        StartCoroutine(MockSelectSkill("Intimidation",0.4f));
     }
 
     // for testing purposes
     IEnumerator MockSelectSkill(string skillName)
     {
-        yield return new WaitForEndOfFrame();
+        yield return new WaitForFixedUpdate();
+        SelectSkill(skillName);
+    }
+    IEnumerator MockSelectSkill(string skillName, float timeDelay)
+    {
+        yield return new WaitForSeconds(timeDelay);
         SelectSkill(skillName);
     }
 

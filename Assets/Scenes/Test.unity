@@ -2080,6 +2080,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 396826504}
+  - component: {fileID: 396826505}
   m_Layer: 0
   m_Name: ActiveSkills
   m_TagString: Untagged
@@ -2101,6 +2102,18 @@ Transform:
   m_Father: {fileID: 1338665230}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &396826505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 396826503}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0d6137b9a271ad4b8784c83d8a6efe3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &485309897
 GameObject:
   m_ObjectHideFlags: 0

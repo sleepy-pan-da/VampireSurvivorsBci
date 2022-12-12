@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 658103132871312778}
   - component: {fileID: 658103132871312779}
   - component: {fileID: 6533983196017113246}
+  - component: {fileID: 4979430788542665298}
   m_Layer: 0
   m_Name: Intimidation
   m_TagString: Untagged
@@ -59,6 +60,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 10d4df8aabf4d6d4f8376a75779cc03d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manager: {fileID: 0}
+--- !u!114 &4979430788542665298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 658103132871312776}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac1d14b785ec6aa49b40720df31b19c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &3891924745423488635

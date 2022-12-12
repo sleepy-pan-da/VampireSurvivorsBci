@@ -1,16 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using ActiveSkills.Intimidation;
 
-public class Intimidation : MonoBehaviour
+public class Intimidation : ActiveSpecifications
 {
     private int baseDamage = 3;
     private HashSet<EnemyStatsManager> nearbyEnemies = new HashSet<EnemyStatsManager>(); 
-
+    [SerializeField]
+    private Manager manager;
     // TODO: change skill's aoe from playerstat's aoe modifier?
 
     private void Start()
     {
+        Debug.Log("intimidation start");
+        manager = GetComponent<Manager>();
         InvokeRepeating("DamageNearbyEnemies", 0f, 0.1f);
     }
 
@@ -49,4 +53,20 @@ public class Intimidation : MonoBehaviour
             enemyStatsManager.TakeDamage(damage);
         }
     }
+
+    public override void Compute(int level)
+    {
+        switch(level)
+        {
+            case 2:
+                baseDamage = 10;
+                break;
+            case 3:
+                manager.SetCircleRadius(4);
+                break;
+            case 4:
+                break;
+        }
+    }
+
 }
