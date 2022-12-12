@@ -13,7 +13,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField]
     private Vector2 spawnArea;
 
-    void Start()
+    private void Start()
     {
         PlayerStatsManager.OnDeath += StopSpawning;
         StartSpawning();

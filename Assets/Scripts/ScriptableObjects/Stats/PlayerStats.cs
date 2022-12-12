@@ -77,4 +77,10 @@ public class PlayerStats : ScriptableObject
         ExpNeededToLevel = (int)(ExpNeededToLevel * 1.5f);
     }
 
+    // Helper method for active skills
+    public int ComputeDamageFromMultiplier(int baseDamage)
+    {
+        return Mathf.CeilToInt(baseDamage * DamageMultiplier);
+    }
+
 }

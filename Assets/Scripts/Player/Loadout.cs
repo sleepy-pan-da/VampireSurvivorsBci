@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
+// Stores currently held skills and their corresponding levels
 public class Loadout : MonoBehaviour
 {
     public static event Action<string, int> OnUpdatedSkillLevel;

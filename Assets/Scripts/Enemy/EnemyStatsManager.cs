@@ -8,12 +8,12 @@ public class EnemyStatsManager : MonoBehaviour
     [SerializeField]
     private GameObject expOrb;
 
-    void Start()
+    private void Start()
     {
         Stats = Instantiate(Stats);
     }
 
-    void Update()
+    private void Update()
     {
         // Testing purposes
         if (Input.GetKeyDown(KeyCode.LeftArrow))
@@ -22,7 +22,7 @@ public class EnemyStatsManager : MonoBehaviour
         }
     }
 
-    void TakeDamage(int damage)
+    public void TakeDamage(int damage)
     {
         Stats.CurrentHp = Mathf.Max(0, Stats.CurrentHp - damage);
         if (Stats.CurrentHp == 0)
@@ -30,5 +30,10 @@ public class EnemyStatsManager : MonoBehaviour
             Instantiate(expOrb, transform.position, transform.rotation);
             Destroy(gameObject);
         }
+    }
+
+    public bool WillDieFromDamage(int damage)
+    {
+        return (Stats.CurrentHp - damage <= 0);
     }
 }
