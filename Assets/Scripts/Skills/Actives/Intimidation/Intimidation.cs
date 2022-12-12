@@ -5,17 +5,15 @@ using ActiveSkills.Intimidation;
 
 public class Intimidation : ActiveSpecifications
 {
-    private int baseDamage = 3;
+    private int baseDamage = 15;
     private HashSet<EnemyStatsManager> nearbyEnemies = new HashSet<EnemyStatsManager>(); 
-    [SerializeField]
     private Manager manager;
     // TODO: change skill's aoe from playerstat's aoe modifier?
 
     private void Start()
     {
-        Debug.Log("intimidation start");
         manager = GetComponent<Manager>();
-        InvokeRepeating("DamageNearbyEnemies", 0f, 0.1f);
+        InvokeRepeating("DamageNearbyEnemies", 0f, 0.5f);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1895128876322567916}
   - component: {fileID: 339765975}
   - component: {fileID: 232781684820675755}
+  - component: {fileID: 6014257810218792704}
   m_Layer: 0
   m_Name: BaseEnemy
   m_TagString: Enemy
@@ -52,7 +53,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 59a383dd30bd5164ebc3a564a5dc44fe, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -119,3 +120,15 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &6014257810218792704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1895128876322567917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7a563eddd6b9ae4bba4d21d49883c94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
