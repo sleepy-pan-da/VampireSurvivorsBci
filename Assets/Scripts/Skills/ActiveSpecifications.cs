@@ -5,5 +5,6 @@ using UnityEngine;
 public abstract class ActiveSpecifications : MonoBehaviour
 {
     public abstract void Compute(int level);
+    [HideInInspector]
     public Transform skillInstances;
 }
