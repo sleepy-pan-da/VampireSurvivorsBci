@@ -5,9 +5,13 @@ using UnityEngine;
 public class EnemyStatsManager : MonoBehaviour
 {
     public EnemyStats Stats;
+    [HideInInspector]
+    public Transform pickups;
     [SerializeField]
     private GameObject expOrb;
+    
     private SpriteManager spriteManager;
+    
 
     private void Start()
     {
@@ -36,7 +40,7 @@ public class EnemyStatsManager : MonoBehaviour
         
         if (Stats.CurrentHp == 0)
         {
-            Instantiate(expOrb, transform.position, transform.rotation);
+            Instantiate(expOrb, transform.position, transform.rotation, pickups);
             Destroy(gameObject);
         }
     }

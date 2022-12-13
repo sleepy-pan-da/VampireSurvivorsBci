@@ -342,6 +342,36 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &235659866
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 235659867}
+  m_Layer: 0
+  m_Name: PickUps
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &235659867
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 235659866}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -16.405453, y: 0.16402847, z: -16.245197}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &296380797
 GameObject:
   m_ObjectHideFlags: 0
@@ -474,7 +504,7 @@ GameObject:
   - component: {fileID: 339680777}
   m_Layer: 0
   m_Name: LevelColliderTilemap
-  m_TagString: Untagged
+  m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2114,6 +2144,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0d6137b9a271ad4b8784c83d8a6efe3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerSprite: {fileID: 0}
 --- !u!1 &485309897
 GameObject:
   m_ObjectHideFlags: 0
@@ -2310,6 +2341,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 669503884}
   m_CullTransparentMesh: 1
+--- !u!1 &737148509
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 737148510}
+  m_Layer: 0
+  m_Name: Enemies
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &737148510
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 737148509}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -16.405453, y: 0.16402847, z: -16.245197}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &855753480
 GameObject:
   m_ObjectHideFlags: 0
@@ -12728,6 +12789,36 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!1 &1391493309
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1391493310}
+  m_Layer: 0
+  m_Name: SkillInstances
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1391493310
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1391493309}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -16.405453, y: 0.16402847, z: -16.245197}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1406236849
 GameObject:
   m_ObjectHideFlags: 0
@@ -12861,6 +12952,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activeSkillsHeld: {fileID: 396826504}
+  skillInstances: {fileID: 1391493310}
   skills:
   - {fileID: 11400000, guid: d8c45f6854bff77458f27be407d8960a, type: 2}
   - {fileID: 11400000, guid: 4948b3b655dca664ebda3d8d5e2cfff6, type: 2}
@@ -12869,6 +12961,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 382e8b330dfdd5e4784012ad99e075ad, type: 2}
   - {fileID: 11400000, guid: 9197c3a95e453144382af16ef8d2825b, type: 2}
   - {fileID: 11400000, guid: 62a388b93b3df0d4cb62e450b5aa065f, type: 2}
+  - {fileID: 11400000, guid: 6f9e5aef3db072d4dae25565dd960f2d, type: 2}
 --- !u!1 &1473661412
 GameObject:
   m_ObjectHideFlags: 0
@@ -12912,9 +13005,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07db1103136196d4e89befaeb4ac1f57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnIndicator: {fileID: 2063280931129063652, guid: 3efcc732a1a3a0b4ca31b9b949bd875a,
+  spawnIndicator: {fileID: 2115245888874408182, guid: 3efcc732a1a3a0b4ca31b9b949bd875a,
     type: 3}
   enemy: {fileID: 3361951905897628908, guid: 35e432ec7f671e94bb3c98185a2eb54e, type: 3}
+  parent: {fileID: 737148510}
+  pickups: {fileID: 235659867}
   spawnArea: {x: 36, y: 16}
 --- !u!1 &1575832664
 GameObject:

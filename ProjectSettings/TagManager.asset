@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - ExpOrb
+  - Level
   layers:
   - Default
   - TransparentFX

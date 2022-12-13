@@ -7,6 +7,8 @@ public class SkillDB : MonoBehaviour
 {
     [SerializeField]
     private Transform activeSkillsHeld;
+    [SerializeField]
+    private Transform skillInstances;
     private ActiveSkillsManager activeSkillsManager;
     [SerializeField]
     private Skill[] skills;
@@ -41,6 +43,7 @@ public class SkillDB : MonoBehaviour
                 Active skill = (Active)skillDict[updatedSkill];
                 ActiveSpecifications instance = Instantiate(skill.SkillPrefab, activeSkillsHeld.position, activeSkillsHeld.rotation, activeSkillsHeld);
                 activeSkillsManager.skillDict.Add(updatedSkill, instance);
+                instance.skillInstances = skillInstances;
             }
             else
             {

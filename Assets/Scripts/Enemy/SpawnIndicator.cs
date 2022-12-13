@@ -8,7 +8,10 @@ public class SpawnIndicator : MonoBehaviour
 {
     [HideInInspector]
     public GameObject EnemySpawned;
-    
+    [HideInInspector]
+    public Transform parent;
+    [HideInInspector]
+    public Transform pickups;
     void Start()
     {
         GetComponent<Animation>().Play();
@@ -16,7 +19,8 @@ public class SpawnIndicator : MonoBehaviour
 
     public void FinishedAnimation()
     {
-        Instantiate(EnemySpawned, transform.position, transform.rotation);
+        GameObject enemy = Instantiate(EnemySpawned, transform.position, transform.rotation, parent);
+        enemy.GetComponent<EnemyStatsManager>().pickups = pickups;
         Destroy(gameObject);
     }
 
