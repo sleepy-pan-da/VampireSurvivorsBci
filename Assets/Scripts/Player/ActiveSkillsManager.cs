@@ -6,11 +6,11 @@ public class ActiveSkillsManager : MonoBehaviour
 {
     public Dictionary<string, ActiveSpecifications> skillDict = new Dictionary<string, ActiveSpecifications>();
     [HideInInspector]
-    public SpriteRenderer playerSprite; // for skills that require determine player's direction
+    public TopdownMovement playerTopdownMovement; // for skills that require determine player's direction
     
     private void Start()
     {
-        playerSprite = transform.parent.GetComponent<SpriteRenderer>();
+        playerTopdownMovement = transform.parent.GetComponent<TopdownMovement>();
     }
     
     public void UpdateActiveSkill(string updatedSkill, int skillLevel)

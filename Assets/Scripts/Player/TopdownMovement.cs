@@ -17,8 +17,8 @@ public class TopdownMovement : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private Rigidbody2D rb;
     private Vector3 velocity = Vector3.zero;
+    private Vector3 latestDirectionFaced = Vector3.right; // for skills that require player's direction
     
-
     private void Start()
     {
         SetMovementBasedOnStats();
@@ -43,6 +43,7 @@ public class TopdownMovement : MonoBehaviour
         if (direction != Vector3.zero)
         {
             spriteRenderer.flipX = direction.x < 0;
+            latestDirectionFaced = direction;
         }
 
         velocity = Vector3.MoveTowards(velocity, maxMoveSpeed * direction, acceleration * Time.deltaTime);
@@ -54,5 +55,15 @@ public class TopdownMovement : MonoBehaviour
         float movementMultiplier = PlayerStatsManager.Stats.MovementSpeedMultiplier;
         maxMoveSpeed = origMaxMoveSpeed * movementMultiplier;
         acceleration = origAcceleration * movementMultiplier;
-    } 
+    }
+
+    public bool isFacingRight()
+    {
+        return latestDirectionFaced.x > 0;
+    }
+
+    public Vector3 GetLatestDirectionFaced()
+    {
+        return latestDirectionFaced;
+    }
 }

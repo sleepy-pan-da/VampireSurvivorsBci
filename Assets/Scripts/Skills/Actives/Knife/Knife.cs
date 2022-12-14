@@ -8,7 +8,7 @@ public class Knife : ActiveSpecifications
     private KnifeInstance knife;
     [SerializeField]
     private Vector3 spawnOffset;
-    private SpriteRenderer playerSprite;
+    private TopdownMovement playerTopdownMovement;
     private int baseDamage = 30;
     private float cooldown = 1f;
     private float projectileInterval = 0.1f;
@@ -19,7 +19,7 @@ public class Knife : ActiveSpecifications
 
     private void Start()
     {
-        playerSprite = transform.parent.GetComponent<ActiveSkillsManager>().playerSprite;
+        playerTopdownMovement = transform.parent.GetComponent<ActiveSkillsManager>().playerTopdownMovement;
         StartCoroutine(SpawnAfterSeconds(cooldown));
     }
 
@@ -35,7 +35,7 @@ public class Knife : ActiveSpecifications
     private void Spawn()
     { 
         Vector3 offset = spawnOffset; 
-        bool isFacingLeft = playerSprite.flipX;
+        bool isFacingLeft = !playerTopdownMovement.isFacingRight();
         if (isFacingLeft) offset.x *= -1;
         KnifeInstance knifeInstance = Instantiate(knife, transform.position + offset, knife.transform.rotation, skillInstances);
         int damage = PlayerStatsManager.Stats.ComputeDamageFromMultiplier(baseDamage);
