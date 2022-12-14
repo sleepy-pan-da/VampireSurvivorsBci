@@ -13,7 +13,7 @@ public class Knife : ActiveSpecifications
     private float cooldown = 1f;
     private float projectileInterval = 0.1f;
     private float baseSpeed = 28f;
-    private float knockback;
+    private float knockbackStrength = 160f;
     private int pierce;
     private bool canSpawn = true;
 
@@ -39,7 +39,7 @@ public class Knife : ActiveSpecifications
         if (isFacingLeft) offset.x *= -1;
         KnifeInstance knifeInstance = Instantiate(knife, transform.position + offset, knife.transform.rotation, skillInstances);
         int damage = PlayerStatsManager.Stats.ComputeDamageFromMultiplier(baseDamage);
-        knifeInstance.fire(damage, baseSpeed, isFacingLeft);
+        knifeInstance.fire(damage, baseSpeed, isFacingLeft, knockbackStrength);
     }
 
     public override void Compute(int level)

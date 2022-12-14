@@ -16,9 +16,7 @@ public class DamageNumbersManager : MonoBehaviour
 
     private void SpawnDamageNumber(int damageNumber, Vector3 position)
     {
-        Debug.Log(position);
         DamageNumber instance = Instantiate(damageNumberPrefab, position, damageNumberPrefab.transform.rotation, instanceParent);
-        Debug.Log(instance.transform.position);
         instance.PopUp(damageNumber);
     }
 }

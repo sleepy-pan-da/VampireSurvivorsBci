@@ -2,21 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(KnockbackManager))]
 public class EnemyMovement : MonoBehaviour
 {
     private Transform playerTransform;
     private int speed;
     private Rigidbody2D rb;
-    
-    void Start()
+    private KnockbackManager knockbackManager;
+
+    private void Start()
     {
         playerTransform = GameObject.FindWithTag("Player")?.transform; 
         speed = GetComponent<EnemyStatsManager>().Stats.MovementSpeed;
 
         rb = GetComponent<Rigidbody2D>();
+        knockbackManager = GetComponent<KnockbackManager>();
+
+        knockbackManager.OnBegin += () => {enabled = false;};
+        knockbackManager.OnDone += () => {enabled = true;};
     }
-    
-    void FixedUpdate()
+
+    private void FixedUpdate()
     {
         FollowPlayer();
     }
