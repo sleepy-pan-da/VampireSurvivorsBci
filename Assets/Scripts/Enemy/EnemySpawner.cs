@@ -38,7 +38,7 @@ public class EnemySpawner : MonoBehaviour
         Vector3 spawnPosition = new Vector3(Random.Range(-spawnArea.x/2, spawnArea.x/2),Random.Range(-spawnArea.y/2, spawnArea.y/2), 0);
         SpawnIndicator newSpawnIndicator = Instantiate(spawnIndicator, spawnPosition, transform.rotation, parent);
         newSpawnIndicator.EnemySpawned = enemy;
-        newSpawnIndicator.parent = parent;
-        newSpawnIndicator.pickups = pickups;
+        newSpawnIndicator.Parent = parent;
+        newSpawnIndicator.Pickups = pickups;
     }
 }

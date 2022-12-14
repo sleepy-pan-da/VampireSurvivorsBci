@@ -1,17 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class EnemyStatsManager : MonoBehaviour
 {
     public EnemyStats Stats;
     [HideInInspector]
-    public Transform pickups;
+    public Transform Pickups;
     [SerializeField]
     private GameObject expOrb;
-    
     private SpriteManager spriteManager;
-    
+    public static event Action<int, Vector3> OnTakenDamage;
 
     private void Start()
     {
@@ -32,6 +32,7 @@ public class EnemyStatsManager : MonoBehaviour
     {
         Stats.CurrentHp = Mathf.Max(0, Stats.CurrentHp - damage);
         spriteManager.OnTakeDamage();
+        OnTakenDamage?.Invoke(damage, transform.position);
 
         // var seq = LeanTween.sequence();
         
@@ -40,7 +41,7 @@ public class EnemyStatsManager : MonoBehaviour
         
         if (Stats.CurrentHp == 0)
         {
-            Instantiate(expOrb, transform.position, transform.rotation, pickups);
+            Instantiate(expOrb, transform.position, transform.rotation, Pickups);
             Destroy(gameObject);
         }
     }
