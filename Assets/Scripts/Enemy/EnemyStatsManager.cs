@@ -30,15 +30,9 @@ public class EnemyStatsManager : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        if (!WillDieFromDamage(damage)) spriteManager.OnTakeDamage();
         Stats.CurrentHp = Mathf.Max(0, Stats.CurrentHp - damage);
-        spriteManager.OnTakeDamage();
         OnTakenDamage?.Invoke(damage, transform.position);
-
-        // var seq = LeanTween.sequence();
-        
-        // seq.append(LeanTween.scale(gameObject, new Vector3(1.2f, 1.2f), 0.1f).setEase(LeanTweenType.easeInOutCubic));
-        // seq.append(LeanTween.scale(gameObject, new Vector3(1f, 1f), 0.2f).setEase(LeanTweenType.easeInOutCubic));
-        
         if (Stats.CurrentHp == 0)
         {
             Instantiate(expOrb, transform.position, transform.rotation, Pickups);

@@ -16,10 +16,11 @@ public class UpgradeUI : MonoBehaviour
         StartCoroutine(MockSelectSkill("Lightfooted"));
         StartCoroutine(MockSelectSkill("Resilience"));
         StartCoroutine(MockSelectSkill("Magnet"));
-        StartCoroutine(MockSelectSkill("Intimidation"));
-        StartCoroutine(MockSelectSkill("Intimidation",0.2f));
-        StartCoroutine(MockSelectSkill("Intimidation",0.4f));
-        StartCoroutine(MockSelectSkill("Knife"));
+        // StartCoroutine(MockSelectSkill("Intimidation"));
+        // StartCoroutine(MockSelectSkill("Intimidation",0.2f));
+        // StartCoroutine(MockSelectSkill("Intimidation",0.4f));
+        // StartCoroutine(MockSelectSkill("Knife"));
+        StartCoroutine(MockSelectSkill("Firebolt"));
     }
 
     // for testing purposes

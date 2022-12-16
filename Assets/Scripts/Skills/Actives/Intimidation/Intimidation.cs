@@ -5,9 +5,9 @@ using ActiveSkills.Intimidation;
 
 public class Intimidation : ActiveSpecifications
 {
-    private int baseDamage = 15;
     private HashSet<EnemyStatsManager> nearbyEnemies = new HashSet<EnemyStatsManager>(); 
     private Manager manager;
+    private int baseDamage = 15;
     // TODO: change skill's aoe from playerstat's aoe modifier?
 
     private void Start()

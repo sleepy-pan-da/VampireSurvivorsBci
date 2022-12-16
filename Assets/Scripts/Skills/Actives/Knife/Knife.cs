@@ -15,7 +15,6 @@ public class Knife : ActiveSpecifications
     private float baseSpeed = 28f;
     private float knockbackStrength = 160f;
     private int pierce;
-    private bool canSpawn = true;
 
     private void Start()
     {
@@ -23,16 +22,7 @@ public class Knife : ActiveSpecifications
         StartCoroutine(SpawnAfterSeconds(cooldown));
     }
 
-    IEnumerator SpawnAfterSeconds(float seconds)
-    {
-        while (canSpawn)
-        {
-            yield return new WaitForSeconds(seconds);
-            Spawn();
-        }
-    }
-
-    private void Spawn()
+    protected override void Spawn()
     { 
         Vector3 offset = spawnOffset; 
         bool isFacingLeft = !playerTopdownMovement.isFacingRight();

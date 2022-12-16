@@ -4,7 +4,22 @@ using UnityEngine;
 
 public abstract class ActiveSpecifications : MonoBehaviour
 {
-    public abstract void Compute(int level);
     [HideInInspector]
     public Transform skillInstances;
+    public abstract void Compute(int level);
+    protected bool canSpawn = true;
+         
+    protected IEnumerator SpawnAfterSeconds(float seconds)
+    {
+        while (canSpawn)
+        {
+            yield return new WaitForSeconds(seconds);
+            Spawn();
+        }
+    } 
+
+    protected virtual void Spawn()
+    {
+
+    }
 }
