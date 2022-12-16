@@ -17,9 +17,9 @@ public class SpriteManager : MonoBehaviour
     }
 
     private IEnumerator FlashWhite()
-    {
-        sprite.material.SetFloat("_FlashAmount", 1f);
+    { 
+        sprite?.material.SetFloat("_FlashAmount", 1f);
         yield return new WaitForSeconds(0.1f);
-        sprite.material.SetFloat("_FlashAmount", 0f);
+        sprite?.material.SetFloat("_FlashAmount", 0f);
     }
 }
