@@ -11,16 +11,18 @@ public class UpgradeUI : MonoBehaviour
     private void Start()
     {
         // for testing purposes
-        StartCoroutine(MockSelectSkill("Vitality"));
-        StartCoroutine(MockSelectSkill("Determination"));
-        StartCoroutine(MockSelectSkill("Lightfooted"));
-        StartCoroutine(MockSelectSkill("Resilience"));
-        StartCoroutine(MockSelectSkill("Magnet"));
+        // StartCoroutine(MockSelectSkill("Vitality"));
+        // StartCoroutine(MockSelectSkill("Determination"));
+        // StartCoroutine(MockSelectSkill("Lightfooted"));
+        // StartCoroutine(MockSelectSkill("Resilience"));
+        // StartCoroutine(MockSelectSkill("Magnet"));
         // StartCoroutine(MockSelectSkill("Intimidation"));
         // StartCoroutine(MockSelectSkill("Intimidation",0.2f));
         // StartCoroutine(MockSelectSkill("Intimidation",0.4f));
-        // StartCoroutine(MockSelectSkill("Knife"));
+        StartCoroutine(MockSelectSkill("Knife"));
         StartCoroutine(MockSelectSkill("Firebolt"));
+        StartCoroutine(MockSelectSkill("Sword"));
+
     }
 
     // for testing purposes

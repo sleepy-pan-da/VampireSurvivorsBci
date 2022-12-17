@@ -9,11 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dab3f420b92625242b8fa30af54f9a24, type: 3}
-  m_Name: BasicEnemyStats
+  m_Script: {fileID: 11500000, guid: 7ebec7253a369934f9910a6ec982371e, type: 3}
+  m_Name: Sword
   m_EditorClassIdentifier: 
-  MaxHp: 30
-  CurrentHp: 30
-  Damage: 1
-  NumOfOrbsToDrop: 0
-  MovementSpeed: 3
+  Name: Sword
+  Description: Attacks horizontally, passes through enemies
+  MaxLevel: 5
+  SkillPrefab: {fileID: 4477387155378776166, guid: d10b0c0c6b9a6804194ce0ad0d030908,
+    type: 3}

@@ -2,19 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Knife : ActiveSpecifications
+public class Sword : ActiveSpecifications
 {
     [SerializeField]
-    private KnifeInstance knife;
-    [SerializeField]
-    private Vector3 spawnOffset;
+    private SwordInstance sword;
     private TopdownMovement playerTopdownMovement;
-    private int baseDamage = 20;
+    private int baseDamage = 5;
     private float cooldown = 1f;
-    private float projectileInterval = 0.1f;
-    private float baseSpeed = 28f;
-    private float knockbackStrength = 160f;
-    private int pierce;
+    private float knockbackStrength = 640f;
 
     private void Start()
     {
@@ -24,12 +19,12 @@ public class Knife : ActiveSpecifications
 
     protected override void Spawn()
     { 
-        Vector3 offset = spawnOffset; 
+        Quaternion swordRotation = sword.transform.rotation;
         bool isFacingLeft = playerTopdownMovement.isFacingLeft();
-        if (isFacingLeft) offset.x *= -1;
-        KnifeInstance knifeInstance = Instantiate(knife, transform.position + offset, knife.transform.rotation, skillInstances);
+        if (isFacingLeft) swordRotation.eulerAngles *= -1;
+        SwordInstance swordInstance = Instantiate(sword, transform.position, swordRotation, transform);
         int damage = PlayerStatsManager.Stats.ComputeDamageFromMultiplier(baseDamage);
-        knifeInstance.fire(damage, baseSpeed, isFacingLeft, knockbackStrength);
+        swordInstance.swing(damage, isFacingLeft, knockbackStrength);
     }
 
     public override void Compute(int level)

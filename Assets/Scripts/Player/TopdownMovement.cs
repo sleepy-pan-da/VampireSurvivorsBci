@@ -62,6 +62,12 @@ public class TopdownMovement : MonoBehaviour
         return latestDirectionFaced.x > 0;
     }
 
+    public bool isFacingLeft()
+    {
+        return latestDirectionFaced.x < 0;
+    }
+
+
     public Vector3 GetLatestDirectionFaced()
     {
         return latestDirectionFaced;

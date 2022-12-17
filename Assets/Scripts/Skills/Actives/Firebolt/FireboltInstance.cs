@@ -5,15 +5,12 @@ using UnityEngine;
 public class FireboltInstance : MonoBehaviour
 {
     private Rigidbody2D rb;
-    private SpriteRenderer spriteRenderer;
-
     private int damage;
     private float knockbackStrength;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     public void fire(Vector3 direction, int damage, float speed, float knockbackStrength)

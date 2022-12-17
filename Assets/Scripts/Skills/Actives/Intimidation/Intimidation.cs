@@ -7,7 +7,7 @@ public class Intimidation : ActiveSpecifications
 {
     private HashSet<EnemyStatsManager> nearbyEnemies = new HashSet<EnemyStatsManager>(); 
     private Manager manager;
-    private int baseDamage = 15;
+    private int baseDamage = 8;
     // TODO: change skill's aoe from playerstat's aoe modifier?
 
     private void Start()
@@ -44,11 +44,11 @@ public class Intimidation : ActiveSpecifications
                 toRemoveFromSet.Add(enemyStatsManager);
                 continue;
             }
-            enemyStatsManager.TakeDamage(damage);
+            enemyStatsManager?.TakeDamage(damage);
         }
         foreach (EnemyStatsManager enemyStatsManager in toRemoveFromSet)
         {
-            enemyStatsManager.TakeDamage(damage);
+            enemyStatsManager?.TakeDamage(damage);
         }
     }
 

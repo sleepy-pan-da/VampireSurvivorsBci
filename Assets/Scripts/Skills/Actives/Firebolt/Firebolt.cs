@@ -8,8 +8,8 @@ public class Firebolt : ActiveSpecifications
     [SerializeField]
     private FireboltInstance firebolt;
     private float spawnOffset = 0.5f;
-    private int baseDamage = 10;
-    private float cooldown = 0.3f;
+    private int baseDamage = 45;
+    private float cooldown = 1.5f;
     private float projectileInterval = 0.1f;
     private float baseSpeed = 7f;
     private float knockbackStrength = 160f;
