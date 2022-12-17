@@ -24,6 +24,16 @@ public class KnockbackManager : MonoBehaviour
         StartCoroutine(Reset());
     }
 
+    public void ApplyKnockback(GameObject sender, float knockbackStrength, float stunDuration)
+    {
+        StopAllCoroutines();
+        OnBegin?.Invoke();
+        Vector2 direction = (transform.position - sender.transform.position).normalized;
+        rb.AddForce(direction * knockbackStrength, ForceMode2D.Impulse);
+        this.stunDuration = stunDuration;
+        StartCoroutine(Reset());
+    }
+
     private IEnumerator Reset()
     {
         yield return new WaitForSeconds(stunDuration);
