@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7ebec7253a369934f9910a6ec982371e, type: 3}
-  m_Name: Hammer
+  m_Name: Spear
   m_EditorClassIdentifier: 
-  Name: Hammer
-  Description: Attacks in a circle, dealing huge knockback and stun
+  Name: Spear
+  Description: Fires at furthest enemy, passing through enemies
   MaxLevel: 5
-  SkillPrefab: {fileID: 4619663476749364784, guid: b8dcbcbceff85354dba091be9a31eaa6,
+  SkillPrefab: {fileID: 646083074781491415, guid: 1a043510e65d0654785bd67e568526b8,
     type: 3}

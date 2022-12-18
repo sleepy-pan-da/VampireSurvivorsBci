@@ -2,16 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Firebolt : ActiveSpecifications
+public class Spear : ActiveSpecifications
 {
     private HashSet<Transform> nearbyEnemies = new HashSet<Transform>(); 
     [SerializeField]
-    private FireboltInstance firebolt;
-    private float spawnOffset = 0.5f;
-    private int baseDamage = 45;
-    private float cooldown = 1.5f;
+    private SpearInstance spear;
+    private int baseDamage = 10;
+    private float cooldown = 1f;
     private float projectileInterval = 0.1f;
-    private float baseSpeed = 7f;
+    private float baseSpeed = 28f;
     private float knockbackStrength = 160f;
     private int pierce;
     
@@ -22,14 +21,14 @@ public class Firebolt : ActiveSpecifications
 
     protected override void Spawn()
     {
-        Transform closestEnemy = GetClosestEnemy();
-        if (!closestEnemy) return;
+        Transform furthestEnemy = GetFurthestEnemy();
+        if (!furthestEnemy) return;
 
-        Vector3 direction = (closestEnemy.position - transform.position).normalized;
-        FireboltInstance fireboltInstance = Instantiate(firebolt, transform.position + direction * spawnOffset, firebolt.transform.rotation, skillInstances);
+        Vector3 direction = (furthestEnemy.position - transform.position).normalized;
+        SpearInstance spearInstance = Instantiate(spear, transform.position + direction, spear.transform.rotation, transform);
         int damage = PlayerStatsManager.Stats.ComputeDamageFromMultiplier(baseDamage);
         
-        fireboltInstance.fire(direction, damage, baseSpeed, knockbackStrength);
+        spearInstance.fire(direction, damage, baseSpeed, knockbackStrength, skillInstances);
     }   
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -48,18 +47,18 @@ public class Firebolt : ActiveSpecifications
         }
     }
 
-    private Transform GetClosestEnemy()
+    private Transform GetFurthestEnemy()
     {
         Transform bestTarget = null;
-        float closestDistSqr = Mathf.Infinity;
+        float furthestDistSqr = 0f;
         Vector3 currentPos = transform.position;
         foreach (Transform potentialTarget in nearbyEnemies)
         {
             Vector3 directionToTarget = potentialTarget.position - currentPos;
             float distSqrToTarget = directionToTarget.sqrMagnitude;
-            if (distSqrToTarget < closestDistSqr)
+            if (distSqrToTarget > furthestDistSqr)
             {
-                closestDistSqr = distSqrToTarget;
+                furthestDistSqr = distSqrToTarget;
                 bestTarget = potentialTarget;
             }
         }
