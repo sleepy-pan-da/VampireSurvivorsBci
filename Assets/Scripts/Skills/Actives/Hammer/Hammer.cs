@@ -8,8 +8,8 @@ public class Hammer : ActiveSpecifications
     private HammerInstance hammer;
     private TopdownMovement playerTopdownMovement;
     private int baseDamage = 3;
-    private float cooldown = 1f;
-    private float knockbackStrength = 7680f;
+    private float cooldown = 2f;
+    private float knockbackStrength = 2560f;
     private float stunDuration = 1f;
 
     private void Start()

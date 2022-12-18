@@ -32,10 +32,10 @@ public class TopdownMovement : MonoBehaviour
 
     private void Move()
     {
-        int movingRight = Convert.ToInt32(Input.GetKey(KeyCode.D));
-        int movingLeft = Convert.ToInt32(Input.GetKey(KeyCode.A));
-        int movingUp = Convert.ToInt32(Input.GetKey(KeyCode.W));
-        int movingDown = Convert.ToInt32(Input.GetKey(KeyCode.S));
+        int movingRight = Convert.ToInt32(Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow));
+        int movingLeft = Convert.ToInt32(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow));
+        int movingUp = Convert.ToInt32(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow) );
+        int movingDown = Convert.ToInt32(Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow));
         Vector3 direction = new Vector3(movingRight - movingLeft, movingUp - movingDown, 0).normalized;
         
         // Update sprite based on direction

@@ -11,7 +11,7 @@ public class HammerInstance : MonoBehaviour
     [HideInInspector]
     public float stunDuration;
     private SpriteRenderer spriteRenderer;
-    private float degreesToRotate = 213f;
+    private float degreesToRotate = 393f;
 
     private void Awake()
     {
@@ -32,7 +32,7 @@ public class HammerInstance : MonoBehaviour
 
         Vector3 rotationAxis = isFacingLeft ? Vector3.forward : Vector3.back;
 
-        seq.append(LeanTween.rotateAroundLocal(gameObject, rotationAxis, degreesToRotate, 0.5f));
+        seq.append(LeanTween.rotateAroundLocal(gameObject, rotationAxis, degreesToRotate, 1f));
         seq.append(() => {
             Destroy(gameObject);
         });

@@ -22,7 +22,7 @@ public class EnemyStatsManager : MonoBehaviour
     private void Update()
     {
         // Testing purposes
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             TakeDamage(10);
         }
