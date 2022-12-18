@@ -23,7 +23,9 @@ public class UpgradeUI : MonoBehaviour
         // StartCoroutine(MockSelectSkill("Firebolt"));
         // StartCoroutine(MockSelectSkill("Sword"));
         // StartCoroutine(MockSelectSkill("Hammer"));
-        StartCoroutine(MockSelectSkill("Spear"));
+        // StartCoroutine(MockSelectSkill("Spear"));
+        StartCoroutine(MockSelectSkill("Cleaver"));
+
     }
 
     // for testing purposes
