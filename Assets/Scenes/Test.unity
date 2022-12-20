@@ -2244,6 +2244,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerTopdownMovement: {fileID: 0}
+  tilemap: {fileID: 339680779}
 --- !u!1 &485309897
 GameObject:
   m_ObjectHideFlags: 0
@@ -13066,6 +13067,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5bc7aa3ba0f58f74cbca6fbe770c121b, type: 2}
   - {fileID: 11400000, guid: 074ce301b50fa794c86e61a907043d4b, type: 2}
   - {fileID: 11400000, guid: a06d652fa2b425640ae60008a99fc479, type: 2}
+  - {fileID: 11400000, guid: 32c8d516e3687e54cac7f0145b7e195d, type: 2}
 --- !u!1 &1473661412
 GameObject:
   m_ObjectHideFlags: 0
