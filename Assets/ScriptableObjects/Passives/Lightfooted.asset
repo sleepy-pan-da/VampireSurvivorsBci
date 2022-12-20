@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Lightfooted
   Description: Move speed increased by 10%
+  MaxLevel: 5
   Specifications: {fileID: 4961948851584098334, guid: dfdfbcbcecba94c4e996c2463949c7b4,
     type: 3}

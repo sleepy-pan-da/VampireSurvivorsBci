@@ -13,6 +13,11 @@ public class UpgradeUI : MonoBehaviour
         // for testing purposes
         // StartCoroutine(MockSelectSkill("Vitality"));
         // StartCoroutine(MockSelectSkill("Determination"));
+
+        for (int i = 0; i < 5; i++)
+        {
+            
+        }
         // StartCoroutine(MockSelectSkill("Lightfooted"));
         // StartCoroutine(MockSelectSkill("Resilience"));
         // StartCoroutine(MockSelectSkill("Magnet"));
@@ -20,7 +25,7 @@ public class UpgradeUI : MonoBehaviour
         // StartCoroutine(MockSelectSkill("Intimidation"));
         // StartCoroutine(MockSelectSkill("Intimidation",0.2f));
         // StartCoroutine(MockSelectSkill("Intimidation",0.4f));
-        // StartCoroutine(MockSelectSkill("Knife"));
+        StartCoroutine(MockSelectSkill("Knife"));
         // StartCoroutine(MockSelectSkill("Firebolt"));
         // StartCoroutine(MockSelectSkill("Sword"));
         // StartCoroutine(MockSelectSkill("Hammer"));

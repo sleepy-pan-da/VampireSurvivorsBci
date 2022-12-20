@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Vitality
   Description: Max HP increased by 10%
+  MaxLevel: 5
   Specifications: {fileID: 8821074153308886970, guid: 8ce87eda558e5a74f84c73a0cbf0f1af,
     type: 3}

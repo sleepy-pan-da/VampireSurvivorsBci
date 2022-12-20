@@ -6,7 +6,7 @@ public class ProficiencySpecs : PassiveSpecifications
 {
     public override void Compute(int level)
     {
-        float newCooldownReduction = 0.5f;
+        float newCooldownReduction = PlayerStatsManager.Stats.CooldownReduction * 0.9f;
         PlayerStatsManager.Stats.SetCooldownReduction(newCooldownReduction);
     }
 }
