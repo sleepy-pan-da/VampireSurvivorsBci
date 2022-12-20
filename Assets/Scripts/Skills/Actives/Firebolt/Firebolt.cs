@@ -55,6 +55,7 @@ public class Firebolt : ActiveSpecifications
         Vector3 currentPos = transform.position;
         foreach (Transform potentialTarget in nearbyEnemies)
         {
+            if (!potentialTarget) continue;
             Vector3 directionToTarget = potentialTarget.position - currentPos;
             float distSqrToTarget = directionToTarget.sqrMagnitude;
             if (distSqrToTarget < closestDistSqr)
