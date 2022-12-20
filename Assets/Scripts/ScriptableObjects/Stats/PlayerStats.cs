@@ -9,17 +9,17 @@ public class PlayerStats : ScriptableObject
     [Header("Done")]
     public int MaxHp;
     public int CurrentHp;
-    public float MovementSpeedMultiplier = 1F;
+    public float MovementSpeedMultiplier = 1f;
     public int Level = 1;
     public int CurrentExp;
     public int ExpNeededToLevel;
     public float DamageMultiplier;
     public int HpRegen;
     public float PickupRadiusMultiplier;
+    public float CooldownReduction = 1f;
 
     [Header("Wip")]
     public float LifeStealMultiplier;
-    public float CooldownReduction;
 
     public static event Action OnChangedMaxHp;
     public static event Action OnChangedMovementSpeedMultiplier;
@@ -57,6 +57,11 @@ public class PlayerStats : ScriptableObject
     {
         PickupRadiusMultiplier = newPickupRadiusMultiplier;
         OnChangedPickupRadiusMultiplier?.Invoke();
+    }
+
+    public void SetCooldownReduction(float newCooldownReduction)
+    {
+        CooldownReduction = newCooldownReduction;
     }
 
     public void TakeDamage(int damage)

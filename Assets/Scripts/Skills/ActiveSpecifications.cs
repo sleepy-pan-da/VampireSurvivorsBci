@@ -13,7 +13,7 @@ public abstract class ActiveSpecifications : MonoBehaviour
     {
         while (canSpawn)
         {
-            yield return new WaitForSeconds(seconds);
+            yield return new WaitForSeconds(seconds * PlayerStatsManager.Stats.CooldownReduction);
             Spawn();
         }
     } 
