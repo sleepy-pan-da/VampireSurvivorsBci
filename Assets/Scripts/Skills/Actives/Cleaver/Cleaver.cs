@@ -10,6 +10,7 @@ public class Cleaver : ActiveSpecifications
     private int baseDamage = 20;
     private float cooldown = 1f;
     private float projectileInterval = 0.1f;
+    private int projectileCount = 1;
     private float baseSpeed = 28f;
     private float knockbackStrength = 160f;
     private int pierce;
@@ -24,11 +25,18 @@ public class Cleaver : ActiveSpecifications
     {
         bool isFacingRight = playerTopdownMovement.isFacingRight();
         Vector3 spawnOffset = cleaver.transform.position;
+        StartCoroutine(SpawnCleaver(spawnOffset, isFacingRight));
+    }
 
-        CleaverInstance cleaverInstance = Instantiate(cleaver, transform.position + spawnOffset, transform.rotation, transform);
-        int damage = PlayerStatsManager.Stats.ComputeDamageFromMultiplier(baseDamage);
-        
-        cleaverInstance.fire(damage, baseSpeed, knockbackStrength, skillInstances, isFacingRight);
+    private IEnumerator SpawnCleaver(Vector3 spawnOffset, bool isFacingRight)
+    {
+        for (int i = 0; i < projectileCount; i++)
+        {
+            CleaverInstance cleaverInstance = Instantiate(cleaver, transform.position + spawnOffset, transform.rotation, transform);
+            int damage = PlayerStatsManager.Stats.ComputeDamageFromMultiplier(baseDamage);
+            cleaverInstance.fire(damage, baseSpeed, knockbackStrength, skillInstances, isFacingRight, cooldown * 0.3f);
+            yield return new WaitForSeconds(projectileInterval);
+        }
     }
 
     public override void Compute(int level)
@@ -36,10 +44,17 @@ public class Cleaver : ActiveSpecifications
         switch(level)
         {
             case 2:
+                projectileCount = 2;
                 break;
             case 3:
+                baseDamage += 5;
                 break;
             case 4:
+                projectileCount = 3;
+                break;
+            case 5:
+                baseDamage += 5;
+                projectileCount = 4;
                 break;
         }
     }

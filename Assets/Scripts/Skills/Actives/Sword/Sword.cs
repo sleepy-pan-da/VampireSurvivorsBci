@@ -7,7 +7,7 @@ public class Sword : ActiveSpecifications
     [SerializeField]
     private SwordInstance sword;
     private TopdownMovement playerTopdownMovement;
-    private int baseDamage = 5;
+    private int baseDamage = 18;
     private float cooldown = 1f;
     private float knockbackStrength = 640f;
 
@@ -32,10 +32,18 @@ public class Sword : ActiveSpecifications
         switch(level)
         {
             case 2:
+                baseDamage += 2;
                 break;
             case 3:
+                baseDamage += 2;
                 break;
             case 4:
+                baseDamage += 2;
+                cooldown = 0.9f;
+                break;
+            case 5:
+                baseDamage += 2;
+                cooldown = 0.8f;
                 break;
         }
     }

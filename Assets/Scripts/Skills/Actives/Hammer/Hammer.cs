@@ -33,10 +33,21 @@ public class Hammer : ActiveSpecifications
         switch(level)
         {
             case 2:
+                knockbackStrength *= 1.1f;
+                stunDuration *= 1.1f;
                 break;
             case 3:
+                knockbackStrength *= 1.1f;
+                stunDuration *= 1.1f;
                 break;
             case 4:
+                knockbackStrength *= 1.1f;
+                stunDuration *= 1.1f;
+                break;
+            case 5:
+                knockbackStrength *= 1.1f;
+                stunDuration *= 1.1f;
+                cooldown = 1f;
                 break;
         }
     }

@@ -13,14 +13,14 @@ public class SpearInstance : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
-    public void fire(Vector3 direction, int damage, float speed, float knockbackStrength, Transform skillInstances)
+    public void fire(Vector3 direction, int damage, float speed, float knockbackStrength, Transform skillInstances, float pullbackDuration)
     {
         this.damage = damage;
         this.knockbackStrength = knockbackStrength;
         transform.Rotate(0f, 0f, Vector3.SignedAngle(Vector3.right, direction, Vector3.forward));
 
         var seq = LeanTween.sequence();
-        seq.append(LeanTween.moveLocal(gameObject, (direction * -0.25f), 0.7f).setEase(LeanTweenType.easeInOutBack));
+        seq.append(LeanTween.moveLocal(gameObject, (direction * -0.25f), pullbackDuration * PlayerStatsManager.Stats.CooldownReduction).setEase(LeanTweenType.easeInOutBack));
         seq.append(() => {
             transform.parent = skillInstances;
             rb.velocity = direction * speed;

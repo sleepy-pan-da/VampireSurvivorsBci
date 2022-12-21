@@ -28,7 +28,7 @@ public class Spear : ActiveSpecifications
         SpearInstance spearInstance = Instantiate(spear, transform.position + direction, spear.transform.rotation, transform);
         int damage = PlayerStatsManager.Stats.ComputeDamageFromMultiplier(baseDamage);
         
-        spearInstance.fire(direction, damage, baseSpeed, knockbackStrength, skillInstances);
+        spearInstance.fire(direction, damage, baseSpeed, knockbackStrength, skillInstances, cooldown * 0.7f);
     }   
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -71,10 +71,21 @@ public class Spear : ActiveSpecifications
         switch(level)
         {
             case 2:
+                baseSpeed *= 1.1f;
+                cooldown = 0.9f;
                 break;
             case 3:
+                baseSpeed *= 1.1f;
+                cooldown = 0.8f;
                 break;
             case 4:
+                baseSpeed *= 1.1f;
+                cooldown = 0.7f;
+                break;
+            case 5:
+                baseSpeed *= 1.1f;
+                cooldown = 0.6f;
+                baseDamage = 20;
                 break;
         }
     }

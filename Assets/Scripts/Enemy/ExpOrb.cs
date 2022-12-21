@@ -6,7 +6,6 @@ using System;
 public class ExpOrb : MonoBehaviour
 {
     private Rigidbody2D rb;
-    private bool hasTarget;
     private Transform targetTransform;
     [SerializeField]
     private float moveSpeed = 10f;
@@ -26,7 +25,7 @@ public class ExpOrb : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (hasTarget)
+        if (targetTransform)
         {
             Vector2 targetDirection = (targetTransform.position - transform.position).normalized;
             rb.velocity = new Vector2(targetDirection.x, targetDirection.y) * moveSpeed;  
@@ -36,6 +35,5 @@ public class ExpOrb : MonoBehaviour
     public void SetTarget(Transform transform)
     {
         targetTransform = transform;
-        hasTarget = true;
     }
 }

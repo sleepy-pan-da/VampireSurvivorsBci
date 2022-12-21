@@ -72,10 +72,18 @@ public class Firebolt : ActiveSpecifications
         switch(level)
         {
             case 2:
+                baseDamage += 10;
                 break;
             case 3:
+                baseDamage += 10;
+                baseSpeed *= 1.2f;
                 break;
             case 4:
+                baseDamage += 10;
+                break;
+            case 5:
+                baseDamage += 10;
+                baseSpeed *= 1.2f;
                 break;
         }
     }

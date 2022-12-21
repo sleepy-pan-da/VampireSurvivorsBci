@@ -8,12 +8,13 @@ public class Intimidation : ActiveSpecifications
     private HashSet<EnemyStatsManager> nearbyEnemies = new HashSet<EnemyStatsManager>(); 
     private Manager manager;
     private int baseDamage = 8;
+    private float cooldown = 0.5f;
     // TODO: change skill's aoe from playerstat's aoe modifier?
 
     private void Start()
     {
         manager = GetComponent<Manager>();
-        InvokeRepeating("DamageNearbyEnemies", 0f, 0.5f);
+        InvokeRepeating("DamageNearbyEnemies", 0f, cooldown);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -57,12 +58,20 @@ public class Intimidation : ActiveSpecifications
         switch(level)
         {
             case 2:
-                baseDamage = 10;
+                baseDamage = 9;
+                manager.SetCircleRadius(3);
                 break;
             case 3:
+                baseDamage = 10;
                 manager.SetCircleRadius(4);
                 break;
             case 4:
+                baseDamage = 11;
+                manager.SetCircleRadius(5);
+                break;
+            case 5:
+                baseDamage = 12;
+                manager.SetCircleRadius(6);
                 break;
         }
     }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class Skill : ScriptableObject
 {
     public string Name;
-    public string Description;
+    public List<string> Description;
     public int MaxLevel;
 }
 

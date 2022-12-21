@@ -18,7 +18,7 @@ public class CleaverInstance : MonoBehaviour
         cleaverChild = childTransform.GetComponent<CleaverChild>();
     }
 
-    public void fire(int damage, float speed, float knockbackStrength, Transform skillInstances, bool isFacingRight)
+    public void fire(int damage, float speed, float knockbackStrength, Transform skillInstances, bool isFacingRight, float animDuration)
     {
         Vector2 velocity = new Vector2(speed, 0);
         if (isFacingRight)
@@ -31,8 +31,8 @@ public class CleaverInstance : MonoBehaviour
 
         var seq = LeanTween.sequence();
         Vector3 rotationAxis = isFacingRight ? Vector3.back : Vector3.forward;
-        seq.append(LeanTween.rotateAroundLocal(gameObject, rotationAxis, degreesToRotate, 0.3f));
-        seq.append(LeanTween.rotateAroundLocal(gameObject, rotationAxis, -(degreesToRotate + 45f), 0.1f));
+        seq.append(LeanTween.rotateAroundLocal(gameObject, rotationAxis, degreesToRotate, 0.75f * animDuration * PlayerStatsManager.Stats.CooldownReduction));
+        seq.append(LeanTween.rotateAroundLocal(gameObject, rotationAxis, -(degreesToRotate + 45f), 0.25f * animDuration * PlayerStatsManager.Stats.CooldownReduction));
 
         seq.append(() => {
             transform.parent = skillInstances;

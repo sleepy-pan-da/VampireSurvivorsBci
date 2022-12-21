@@ -12,6 +12,7 @@ public class Knife : ActiveSpecifications
     private int baseDamage = 20;
     private float cooldown = 1f;
     private float projectileInterval = 0.1f;
+    private int projectileCount = 1;
     private float baseSpeed = 28f;
     private float knockbackStrength = 160f;
     private int pierce;
@@ -27,9 +28,19 @@ public class Knife : ActiveSpecifications
         Vector3 offset = spawnOffset; 
         bool isFacingLeft = playerTopdownMovement.isFacingLeft();
         if (isFacingLeft) offset.x *= -1;
-        KnifeInstance knifeInstance = Instantiate(knife, transform.position + offset, knife.transform.rotation, skillInstances);
-        int damage = PlayerStatsManager.Stats.ComputeDamageFromMultiplier(baseDamage);
-        knifeInstance.fire(damage, baseSpeed, isFacingLeft, knockbackStrength);
+        StartCoroutine(SpawnKnife(offset, isFacingLeft));
+        
+    }
+
+    private IEnumerator SpawnKnife(Vector3 offset, bool isFacingLeft)
+    {
+        for (int i = 0; i < projectileCount; i++)
+        {
+            KnifeInstance knifeInstance = Instantiate(knife, transform.position + offset, knife.transform.rotation, skillInstances);
+            int damage = PlayerStatsManager.Stats.ComputeDamageFromMultiplier(baseDamage);
+            knifeInstance.fire(damage, baseSpeed, isFacingLeft, knockbackStrength);
+            yield return new WaitForSeconds(projectileInterval);
+        }
     }
 
     public override void Compute(int level)
@@ -37,10 +48,19 @@ public class Knife : ActiveSpecifications
         switch(level)
         {
             case 2:
+                projectileCount = 2;
                 break;
             case 3:
+                baseDamage += 5;
+
                 break;
             case 4:
+                projectileCount = 3;
+
+                break;
+            case 5:
+                baseDamage += 5;
+                projectileCount = 4;
                 break;
         }
     }
