@@ -13,7 +13,12 @@ MonoBehaviour:
   m_Name: Bone
   m_EditorClassIdentifier: 
   Name: Bone
-  Description: Throws a bouncing projectile in a random direction
+  Description:
+  - Throws a bouncing projectile in a random direction
+  - Throws 1 more bone
+  - Bounce up by 1
+  - Throws 1 more bone
+  - Bounce up by 1. Throws 1 more bone. BaseSpeed up by 3.
   MaxLevel: 5
   SkillPrefab: {fileID: 1415055535616518163, guid: 391df147cffaf4842951ac5a6e6cc2e8,
     type: 3}

@@ -13,7 +13,12 @@ MonoBehaviour:
   m_Name: Hammer
   m_EditorClassIdentifier: 
   Name: Hammer
-  Description: Attacks in a circle, dealing huge knockback and stun
+  Description:
+  - Swings in a circle, dealing huge knockback and stun
+  - Knockback strength and stun duration up by 10%
+  - Knockback strength and stun duration up by 10%
+  - Knockback strength and stun duration up by 10%
+  - Knockback strength and stun duration up by 10%. Cooldown down by 50%.
   MaxLevel: 5
   SkillPrefab: {fileID: 4619663476749364784, guid: b8dcbcbceff85354dba091be9a31eaa6,
     type: 3}

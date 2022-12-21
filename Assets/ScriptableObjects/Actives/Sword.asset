@@ -13,7 +13,12 @@ MonoBehaviour:
   m_Name: Sword
   m_EditorClassIdentifier: 
   Name: Sword
-  Description: Attacks horizontally, passes through enemies
+  Description:
+  - Swings at an arc in faced direction
+  - Base damage up by 2
+  - Base damage up by 2
+  - Base damage up by 2. Cooldown down by 0.1s.
+  - Base damage up by 2. Cooldown down by 0.1s.
   MaxLevel: 5
   SkillPrefab: {fileID: 4477387155378776166, guid: d10b0c0c6b9a6804194ce0ad0d030908,
     type: 3}

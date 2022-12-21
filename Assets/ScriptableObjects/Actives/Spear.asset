@@ -13,7 +13,12 @@ MonoBehaviour:
   m_Name: Spear
   m_EditorClassIdentifier: 
   Name: Spear
-  Description: Fires at furthest enemy, passing through enemies
+  Description:
+  - Fires at furthest enemy, passing through enemies
+  - Base speed up by 10%. Cooldown down by 0.1s.
+  - Base speed up by 10%. Cooldown down by 0.1s.
+  - Base speed up by 10%. Cooldown down by 0.1s.
+  - Base speed up by 10%. Cooldown down by 0.1s. Base damage up by 100%.
   MaxLevel: 5
   SkillPrefab: {fileID: 646083074781491415, guid: 1a043510e65d0654785bd67e568526b8,
     type: 3}

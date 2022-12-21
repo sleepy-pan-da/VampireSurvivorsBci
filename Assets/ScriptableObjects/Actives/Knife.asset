@@ -13,7 +13,12 @@ MonoBehaviour:
   m_Name: Knife
   m_EditorClassIdentifier: 
   Name: Knife
-  Description: Fires in faced direction
+  Description:
+  - Fires in faced direction
+  - Fires 1 more knife
+  - Base damage up by 5
+  - Fires 1 more knife
+  - Fires 1 more knife. Base damage up by 5
   MaxLevel: 5
   SkillPrefab: {fileID: 8332134089447081266, guid: d7ec2f66ed3c9114da259678a991f676,
     type: 3}

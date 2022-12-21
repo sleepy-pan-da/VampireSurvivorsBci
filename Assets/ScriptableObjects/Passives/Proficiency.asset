@@ -13,7 +13,12 @@ MonoBehaviour:
   m_Name: Proficiency
   m_EditorClassIdentifier: 
   Name: Proficiency
-  Description: Reduce cooldowns by 10%
+  Description:
+  - Reduce cooldowns by 10%
+  - Reduce cooldowns by 10%
+  - Reduce cooldowns by 10%
+  - Reduce cooldowns by 10%
+  - Reduce cooldowns by 10%
   MaxLevel: 5
   Specifications: {fileID: 4328779694655774844, guid: 20fcc424e03659d4c965136615993866,
     type: 3}

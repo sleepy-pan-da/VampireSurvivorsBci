@@ -13,7 +13,12 @@ MonoBehaviour:
   m_Name: Firebolt
   m_EditorClassIdentifier: 
   Name: Firebolt
-  Description: Fires at nearest enemy
+  Description:
+  - Fires at nearest enemy
+  - Base damage up by 10
+  - Base damage up by 10. Base speed up by 20%.
+  - Base damage up by 10
+  - Base damage up by 10. Base speed up by 20%.
   MaxLevel: 5
   SkillPrefab: {fileID: 1356357309912005692, guid: 101e5660f9b4b6b448336b50dbe7cef2,
     type: 3}

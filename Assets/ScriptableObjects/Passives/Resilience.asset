@@ -13,7 +13,12 @@ MonoBehaviour:
   m_Name: Resilience
   m_EditorClassIdentifier: 
   Name: Resilience
-  Description: Hp regen per 5 seconds increased by 1
+  Description:
+  - Hp regen per 5 seconds increased by 1
+  - Hp regen per 5 seconds increased by 1
+  - Hp regen per 5 seconds increased by 1
+  - Hp regen per 5 seconds increased by 1
+  - Hp regen per 5 seconds increased by 1
   MaxLevel: 5
   Specifications: {fileID: 2212551344314918585, guid: ad47479baed0ea2429751691a869990c,
     type: 3}

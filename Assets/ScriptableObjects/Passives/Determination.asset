@@ -13,7 +13,12 @@ MonoBehaviour:
   m_Name: Determination
   m_EditorClassIdentifier: 
   Name: Determination
-  Description: Damage increased by 10%
+  Description:
+  - Damage increased by 10%
+  - Damage increased by 10%
+  - Damage increased by 10%
+  - Damage increased by 10%
+  - Damage increased by 10%
   MaxLevel: 5
   Specifications: {fileID: 5040631436759612529, guid: bd113b50eb929984d9c98489fd04bec5,
     type: 3}

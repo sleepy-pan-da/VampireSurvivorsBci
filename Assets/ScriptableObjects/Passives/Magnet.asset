@@ -13,7 +13,12 @@ MonoBehaviour:
   m_Name: Magnet
   m_EditorClassIdentifier: 
   Name: Magnet
-  Description: 'Increase pickup area by 10% '
+  Description:
+  - 'Increase pickup area by 10% '
+  - 'Increase pickup area by 10% '
+  - 'Increase pickup area by 10% '
+  - 'Increase pickup area by 10% '
+  - 'Increase pickup area by 10% '
   MaxLevel: 5
   Specifications: {fileID: 4257425281394592310, guid: 441001d42bdcdcc419c66082662fadc2,
     type: 3}

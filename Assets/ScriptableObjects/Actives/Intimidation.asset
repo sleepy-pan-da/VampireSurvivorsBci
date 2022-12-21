@@ -13,7 +13,12 @@ MonoBehaviour:
   m_Name: Intimidation
   m_EditorClassIdentifier: 
   Name: Intimidation
-  Description: Damages nearby enemies
-  MaxLevel: 0
+  Description:
+  - Damages nearby enemies
+  - Base area up by 2. Base damage up by 1
+  - Base area up by 2. Base damage up by 1
+  - Base area up by 2. Base damage up by 1
+  - Base area up by 2. Base damage up by 1
+  MaxLevel: 5
   SkillPrefab: {fileID: 6533983196017113246, guid: 2c8b5774fc1998f4b96cca2f5cfc615b,
     type: 3}
