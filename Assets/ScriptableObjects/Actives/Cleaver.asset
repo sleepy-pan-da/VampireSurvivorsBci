@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Cleaver
   m_EditorClassIdentifier: 
   Name: Cleaver
+  Icon: {fileID: 21300000, guid: 43a13fbd5de78594998385c30cb06a5d, type: 3}
   Description:
   - Fires opposite faced direction
   - Fires 1 more cleaver

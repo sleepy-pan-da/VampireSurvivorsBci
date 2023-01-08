@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Determination
   m_EditorClassIdentifier: 
   Name: Determination
+  Icon: {fileID: 21300000, guid: 6124792d66efffa4990187cf65aedfa4, type: 3}
   Description:
   - Damage increased by 10%
   - Damage increased by 10%

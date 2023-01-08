@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Bone
   m_EditorClassIdentifier: 
   Name: Bone
+  Icon: {fileID: 21300000, guid: a0427574e3654014bafd828520811bc0, type: 3}
   Description:
   - Throws a bouncing projectile in a random direction
   - Throws 1 more bone

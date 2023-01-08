@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Knife
   m_EditorClassIdentifier: 
   Name: Knife
+  Icon: {fileID: 21300000, guid: 730201f6ab6763b47b987caf34522165, type: 3}
   Description:
   - Fires in faced direction
   - Fires 1 more knife

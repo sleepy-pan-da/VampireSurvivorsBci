@@ -53,4 +53,49 @@ public class SkillDB : MonoBehaviour
             }
         }
     }
+
+    public List<Skill> ReturnRandomActiveSkill(int numberOfSkills)
+    {
+        List<Skill> res = new List<Skill>();
+        while (res.Count < numberOfSkills)
+        {
+            int i = Random.Range(0, skills.Length);
+            if (skills[i].GetType() == typeof(Passive)) continue;
+            if (res.Contains(skills[i])) continue;
+            res.Add(skills[i]);
+        }
+        return res;
+    }
+
+    // Returns a skill that is not held 
+    public List<Skill> ReturnNewRandomSkill(int numberOfSkills, List<string> heldSkills)
+    {
+        List<Skill> notNew = new List<Skill>();
+        foreach(string skillName in heldSkills)
+        {
+            Skill skill = ReturnSkill(skillName);
+            if (!skill) continue;
+            notNew.Add(ReturnSkill(skillName));
+        }
+
+        List<Skill> res = new List<Skill>();
+        while (res.Count < numberOfSkills)
+        {
+            int i = Random.Range(0, skills.Length);
+            if (res.Contains(skills[i]) || notNew.Contains(skills[i])) continue;
+            res.Add(skills[i]);
+        }
+        return res;
+    }
+
+
+    public Skill ReturnSkill(string skillName)
+    {
+        if (!skillDict.ContainsKey(skillName))
+        {
+            Debug.Log("Skill not in dict");
+            return null;
+        }
+        return skillDict[skillName];
+    }
 }

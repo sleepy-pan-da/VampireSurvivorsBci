@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Hammer
   m_EditorClassIdentifier: 
   Name: Hammer
+  Icon: {fileID: 21300000, guid: 1eb67d463abf7484eaf487d961081809, type: 3}
   Description:
   - Swings in a circle, dealing huge knockback and stun
   - Knockback strength and stun duration up by 10%

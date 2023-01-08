@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Resilience
   m_EditorClassIdentifier: 
   Name: Resilience
+  Icon: {fileID: 21300000, guid: bcc66f677f77d8348b6e491eae1aaf6b, type: 3}
   Description:
   - Hp regen per 5 seconds increased by 1
   - Hp regen per 5 seconds increased by 1

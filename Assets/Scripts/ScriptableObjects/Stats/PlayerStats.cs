@@ -24,6 +24,7 @@ public class PlayerStats : ScriptableObject
     public static event Action OnChangedMaxHp;
     public static event Action OnChangedMovementSpeedMultiplier;
     public static event Action OnChangedPickupRadiusMultiplier;
+    public static event Action OnLeveledUp;
 
     public void GainHp(int hpGained)
     {
@@ -79,7 +80,8 @@ public class PlayerStats : ScriptableObject
     {
         Level += 1;
         CurrentExp = 0;
-        ExpNeededToLevel = (int)(ExpNeededToLevel * 1.5f);
+        // ExpNeededToLevel = (int)(ExpNeededToLevel * 1.5f);
+        OnLeveledUp?.Invoke();
     }
 
     // Helper method for active skills

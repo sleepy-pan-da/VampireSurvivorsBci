@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Sword
   m_EditorClassIdentifier: 
   Name: Sword
+  Icon: {fileID: 21300000, guid: 8a609be8f3a6fb14988d0e91147d679e, type: 3}
   Description:
   - Swings at an arc in faced direction
   - Base damage up by 2

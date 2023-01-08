@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Lightfooted
   m_EditorClassIdentifier: 
   Name: Lightfooted
+  Icon: {fileID: 21300000, guid: e9a69699f87f808479a8947c7818b2c5, type: 3}
   Description:
   - Move speed increased by 10%
   - Move speed increased by 10%

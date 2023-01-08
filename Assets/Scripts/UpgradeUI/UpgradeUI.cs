@@ -7,63 +7,111 @@ public class UpgradeUI : MonoBehaviour
 {
     // Contains code for selecting skills upon leveling up via UI
     public static event Action<string> OnSelectedSkill;
+    private bool testingSkills = false;
+    private CanvasGroup canvasGroup;
+    private SkillGenerator skillGenerator;
+
+    private void Awake()
+    {
+        canvasGroup = GetComponent<CanvasGroup>();
+    }
 
     private void Start()
     {
-        // for testing purposes
-        // StartCoroutine(MockSelectSkill("Vitality"));
-        // StartCoroutine(MockSelectSkill("Determination"));
-
-        for (int i = 0; i < 5; i++)
+        skillGenerator = transform.Find("Background/Body").GetComponent<SkillGenerator>();
+        SkillPanel.OnPressedSkillPanel += SelectSkill;
+        PlayerStats.OnLeveledUp += Open;
+        if (testingSkills)
         {
+            // for testing purposes
+            // StartCoroutine(MockSelectSkillEnumerator("Vitality"));
+            // StartCoroutine(MockSelectSkillEnumerator("Determination"));
+
+            for (int i = 0; i < 5; i++)
+            {
+                
+            }
+            // StartCoroutine(MockSelectSkillEnumerator("Lightfooted"));
+            // StartCoroutine(MockSelectSkillEnumerator("Resilience"));
+            // StartCoroutine(MockSelectSkillEnumerator("Magnet"));
+            // StartCoroutine(MockSelectSkillEnumerator("Proficiency"));
+            // StartCoroutine(MockSelectSkillEnumerator("Intimidation"));
             
+
+
+            // StartCoroutine(MockSelectSkillEnumerator("Knife"));
+            
+
+            // StartCoroutine(MockSelectSkillEnumerator("Firebolt"));
+            
+
+            // StartCoroutine(MockSelectSkillEnumerator("Sword"));
+            
+
+            // StartCoroutine(MockSelectSkillEnumerator("Hammer"));
+            
+
+            // StartCoroutine(MockSelectSkillEnumerator("Spear"));
+            
+
+            // StartCoroutine(MockSelectSkillEnumerator("Cleaver"));
+            
+            StartCoroutine(MockSelectSkillEnumerator("Bone"));
+            StartCoroutine(MockSelectSkillEnumerator("Bone",0.1f));
+            StartCoroutine(MockSelectSkillEnumerator("Bone",0.2f));
+            StartCoroutine(MockSelectSkillEnumerator("Bone",0.3f));
+            StartCoroutine(MockSelectSkillEnumerator("Bone",0.4f));
+
+            ToggleUI(false);
+            return;
         }
-        // StartCoroutine(MockSelectSkill("Lightfooted"));
-        // StartCoroutine(MockSelectSkill("Resilience"));
-        // StartCoroutine(MockSelectSkill("Magnet"));
-        // StartCoroutine(MockSelectSkill("Proficiency"));
-        // StartCoroutine(MockSelectSkill("Intimidation"));
         
+        Open();
+    }
 
-
-        // StartCoroutine(MockSelectSkill("Knife"));
-        
-
-        // StartCoroutine(MockSelectSkill("Firebolt"));
-        
-
-        // StartCoroutine(MockSelectSkill("Sword"));
-        
-
-        // StartCoroutine(MockSelectSkill("Hammer"));
-        
-
-        // StartCoroutine(MockSelectSkill("Spear"));
-        
-
-        // StartCoroutine(MockSelectSkill("Cleaver"));
-        
-        StartCoroutine(MockSelectSkill("Bone"));
-        // StartCoroutine(MockSelectSkill("Bone",0.1f));
-        // StartCoroutine(MockSelectSkill("Bone",0.2f));
-        // StartCoroutine(MockSelectSkill("Bone",0.3f));
-        // StartCoroutine(MockSelectSkill("Bone",0.4f));
+    private void Open()
+    {
+        // Pick 3 skills to choose from
+        Time.timeScale = 0;
+        skillGenerator.ChooseAvailableSkills();
+        ToggleUI(true);
     }
 
     // for testing purposes
-    IEnumerator MockSelectSkill(string skillName)
+    IEnumerator MockSelectSkillEnumerator(string skillName)
     {
         yield return new WaitForFixedUpdate();
-        SelectSkill(skillName);
+        MockSelectSkill(skillName);
     }
-    IEnumerator MockSelectSkill(string skillName, float timeDelay)
+    IEnumerator MockSelectSkillEnumerator(string skillName, float timeDelay)
     {
         yield return new WaitForSeconds(timeDelay);
-        SelectSkill(skillName);
+        MockSelectSkill(skillName);
+    }
+
+    private void MockSelectSkill(string skillName)
+    {
+        OnSelectedSkill?.Invoke(skillName);
     }
 
     private void SelectSkill(string skillName)
     {
         OnSelectedSkill?.Invoke(skillName);
+        ToggleUI(false);
+        Time.timeScale = 1;
+    }
+
+    private void ToggleUI(bool isVisible)
+    {
+        if (isVisible)
+        {
+            canvasGroup.alpha = 1f;
+            canvasGroup.interactable = true;
+        }
+        else
+        {
+            canvasGroup.alpha = 0f;
+            canvasGroup.interactable = false;
+        }
     }
 }

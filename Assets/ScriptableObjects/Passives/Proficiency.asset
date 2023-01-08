@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Proficiency
   m_EditorClassIdentifier: 
   Name: Proficiency
+  Icon: {fileID: 21300000, guid: 00cd666541b2a3b48bb5457c8b82b4a2, type: 3}
   Description:
   - Reduce cooldowns by 10%
   - Reduce cooldowns by 10%
