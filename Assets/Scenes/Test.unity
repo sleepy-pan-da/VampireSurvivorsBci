@@ -13628,6 +13628,11 @@ MonoBehaviour:
   parent: {fileID: 737148510}
   pickups: {fileID: 235659867}
   spawnArea: {x: 36, y: 16}
+  spawnInfoList:
+  - {fileID: 11400000, guid: c709dd0c9200259408240460acc27ec7, type: 2}
+  - {fileID: 11400000, guid: 3672fe4cd7af21942aa1c3d2948d2b0b, type: 2}
+  - {fileID: 11400000, guid: 3672fe4cd7af21942aa1c3d2948d2b0b, type: 2}
+  - {fileID: 11400000, guid: 3672fe4cd7af21942aa1c3d2948d2b0b, type: 2}
 --- !u!1 &1542187534
 GameObject:
   m_ObjectHideFlags: 0
