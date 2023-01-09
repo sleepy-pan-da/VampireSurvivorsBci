@@ -9,12 +9,26 @@ public class TimeRemaining : MonoBehaviour
     private float timeInSeconds = 600;
     [SerializeField]
     private TextMeshProUGUI timeText;
+    private bool isEnabled = true;
+
+    private void Start()
+    {
+        PlayerStatsManager.OnDeath += Disable;
+    }
+
+    private void Disable()
+    {
+        isEnabled = false;
+    }
 
     private void Update()
     {
-        timeInSeconds -= Time.deltaTime;
-        if (timeInSeconds <= 0) timeInSeconds = 0;
-        DisplayTime();
+        if (isEnabled)
+        {
+            timeInSeconds -= Time.deltaTime;
+            if (timeInSeconds <= 0) timeInSeconds = 0;
+            DisplayTime();
+        }
     }
 
     private void DisplayTime()
