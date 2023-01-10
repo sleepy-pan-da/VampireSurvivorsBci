@@ -15,6 +15,4 @@ MonoBehaviour:
   TimeTakenToSpawn: 0
   EnemyTypes:
   - {fileID: 3361951905897628908, guid: 35e432ec7f671e94bb3c98185a2eb54e, type: 3}
-  - {fileID: 4295197870141096531, guid: 09a14a06f1566ab49b8b7a774c95d0a6, type: 3}
-  - {fileID: 2379072572018913407, guid: b93e4d8f4d49cb74fb1904d91f57320b, type: 3}
-  SpawnQty: 050000000100000001000000
+  SpawnQty: 14000000
