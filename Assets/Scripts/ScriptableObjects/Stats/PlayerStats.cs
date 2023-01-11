@@ -80,7 +80,7 @@ public class PlayerStats : ScriptableObject
     {
         Level += 1;
         CurrentExp = 0;
-        // ExpNeededToLevel = (int)(ExpNeededToLevel * 1.5f);
+        ExpNeededToLevel = (int)(ExpNeededToLevel * 1.2f);
         OnLeveledUp?.Invoke();
     }
 

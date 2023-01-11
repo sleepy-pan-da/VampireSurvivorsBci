@@ -48,7 +48,7 @@ public class UpgradeUI : MonoBehaviour
             // StartCoroutine(MockSelectSkillEnumerator("Sword"));
             
 
-            // StartCoroutine(MockSelectSkillEnumerator("Hammer"));
+            StartCoroutine(MockSelectSkillEnumerator("Hammer"));
             
 
             // StartCoroutine(MockSelectSkillEnumerator("Spear"));
@@ -56,11 +56,11 @@ public class UpgradeUI : MonoBehaviour
 
             // StartCoroutine(MockSelectSkillEnumerator("Cleaver"));
             
-            StartCoroutine(MockSelectSkillEnumerator("Bone"));
-            StartCoroutine(MockSelectSkillEnumerator("Bone",0.1f));
-            StartCoroutine(MockSelectSkillEnumerator("Bone",0.2f));
-            StartCoroutine(MockSelectSkillEnumerator("Bone",0.3f));
-            StartCoroutine(MockSelectSkillEnumerator("Bone",0.4f));
+            // StartCoroutine(MockSelectSkillEnumerator("Bone"));
+            // StartCoroutine(MockSelectSkillEnumerator("Bone",0.1f));
+            // StartCoroutine(MockSelectSkillEnumerator("Bone",0.2f));
+            // StartCoroutine(MockSelectSkillEnumerator("Bone",0.3f));
+            // StartCoroutine(MockSelectSkillEnumerator("Bone",0.4f));
 
             ToggleUI(false);
             return;

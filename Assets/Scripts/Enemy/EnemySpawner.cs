@@ -60,7 +60,7 @@ public class EnemySpawner : MonoBehaviour
     }
 
     private IEnumerator StartSpawnWave()
-    {   
+    {  
         foreach (SpawnInfo spawnInfo in spawnInfoList)
         {
             yield return new WaitForSeconds(spawnInfo.TimeTakenToSpawn);

@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 27802a7adbb2bf846b4c7564cdd5b4e3, type: 3}
-  m_Name: SpawnInfo2
+  m_Name: SpawnInfo10C
   m_EditorClassIdentifier: 
-  TimeTakenToSpawn: 15
+  TimeTakenToSpawn: 3
   EnemyTypes:
   - {fileID: 3361951905897628908, guid: 35e432ec7f671e94bb3c98185a2eb54e, type: 3}
-  SpawnQty: 05000000
+  SpawnQty: 0a000000

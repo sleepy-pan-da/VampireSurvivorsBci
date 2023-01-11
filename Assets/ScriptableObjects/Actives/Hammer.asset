@@ -15,11 +15,11 @@ MonoBehaviour:
   Name: Hammer
   Icon: {fileID: 21300000, guid: 1eb67d463abf7484eaf487d961081809, type: 3}
   Description:
-  - Swings in a circle, dealing huge knockback and stun
-  - Knockback strength and stun duration up by 10%
-  - Knockback strength and stun duration up by 10%
-  - Knockback strength and stun duration up by 10%
-  - Knockback strength and stun duration up by 10%. Cooldown down by 50%.
+  - Swings in a circle and stuns
+  - Stun duration up by 10%
+  - 'Stun duration up by 10%. '
+  - Stun duration up by 10%. Cooldown down by 25%.
+  - Stun duration up by 10%. Cooldown down by 33%.
   MaxLevel: 5
   SkillPrefab: {fileID: 4619663476749364784, guid: b8dcbcbceff85354dba091be9a31eaa6,
     type: 3}

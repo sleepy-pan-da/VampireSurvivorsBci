@@ -9,7 +9,7 @@ public class Hammer : ActiveSpecifications
     private TopdownMovement playerTopdownMovement;
     private int baseDamage = 3;
     private float cooldown = 2f;
-    private float knockbackStrength = 2560f;
+    private float knockbackStrength = 640f;
     private float stunDuration = 1f;
 
     private void Start()
@@ -33,19 +33,16 @@ public class Hammer : ActiveSpecifications
         switch(level)
         {
             case 2:
-                knockbackStrength *= 1.1f;
                 stunDuration *= 1.1f;
                 break;
             case 3:
-                knockbackStrength *= 1.1f;
                 stunDuration *= 1.1f;
                 break;
             case 4:
-                knockbackStrength *= 1.1f;
                 stunDuration *= 1.1f;
+                cooldown = 1.5f;
                 break;
             case 5:
-                knockbackStrength *= 1.1f;
                 stunDuration *= 1.1f;
                 cooldown = 1f;
                 break;
