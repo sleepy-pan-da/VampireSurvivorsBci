@@ -9,11 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dab3f420b92625242b8fa30af54f9a24, type: 3}
-  m_Name: GruntEnemyStats
+  m_Script: {fileID: 11500000, guid: 27802a7adbb2bf846b4c7564cdd5b4e3, type: 3}
+  m_Name: SpawnInfo21
   m_EditorClassIdentifier: 
-  MaxHp: 10
-  CurrentHp: 10
-  Damage: 1
-  NumOfOrbsToDrop: 0
-  MovementSpeed: 4
+  TimeTakenToSpawn: 3
+  EnemyTypes:
+  - {fileID: 4295197870141096531, guid: 09a14a06f1566ab49b8b7a774c95d0a6, type: 3}
+  SpawnQty: 1e000000

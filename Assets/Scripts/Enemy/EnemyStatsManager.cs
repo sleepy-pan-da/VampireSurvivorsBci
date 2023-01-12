@@ -32,7 +32,7 @@ public class EnemyStatsManager : MonoBehaviour
     {
         if (!WillDieFromDamage(damage)) spriteManager.OnTakeDamage();
         Stats.CurrentHp = Mathf.Max(0, Stats.CurrentHp - damage);
-        OnTakenDamage?.Invoke(damage, transform.position);
+        if (transform != null) OnTakenDamage?.Invoke(damage, transform.position);
         if (Stats.CurrentHp == 0)
         {
             Instantiate(expOrb, transform.position, transform.rotation, Pickups);

@@ -8,10 +8,10 @@ public class Bone : ActiveSpecifications
     private BoneInstance bone;
     private float spawnOffset = 0.5f;
     private int baseDamage = 20;
-    private float cooldown = 1.5f;
+    private float cooldown = 1f;
     private float projectileInterval = 0.1f;
     private int projectileCount = 1;
-    private float baseSpeed = 7f;
+    private float baseSpeed = 14f;
     private float knockbackStrength = 160f;
     private int pierce;
     private int bounceRemaining = 3;
@@ -59,7 +59,7 @@ public class Bone : ActiveSpecifications
             case 5:
                 bounceRemaining = 5;
                 projectileCount = 4;
-                baseSpeed = 10f;
+                baseSpeed = 28f;
                 break;
         }
     }

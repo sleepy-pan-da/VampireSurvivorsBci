@@ -9,7 +9,7 @@ public class Knife : ActiveSpecifications
     [SerializeField]
     private Vector3 spawnOffset;
     private TopdownMovement playerTopdownMovement;
-    private int baseDamage = 20;
+    private int baseDamage = 45;
     private float cooldown = 1f;
     private float projectileInterval = 0.1f;
     private int projectileCount = 1;
@@ -51,16 +51,13 @@ public class Knife : ActiveSpecifications
                 projectileCount = 2;
                 break;
             case 3:
-                baseDamage += 5;
-
+                projectileCount = 3;
                 break;
             case 4:
-                projectileCount = 3;
-
+                projectileCount = 4;
                 break;
             case 5:
-                baseDamage += 5;
-                projectileCount = 4;
+                projectileCount = 8;
                 break;
         }
     }

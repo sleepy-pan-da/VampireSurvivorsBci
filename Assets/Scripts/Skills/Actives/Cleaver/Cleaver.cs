@@ -7,7 +7,7 @@ public class Cleaver : ActiveSpecifications
     [SerializeField]
     private CleaverInstance cleaver;
     private TopdownMovement playerTopdownMovement;
-    private int baseDamage = 20;
+    private int baseDamage = 45;
     private float cooldown = 1f;
     private float projectileInterval = 0.1f;
     private int projectileCount = 1;
@@ -47,14 +47,13 @@ public class Cleaver : ActiveSpecifications
                 projectileCount = 2;
                 break;
             case 3:
-                baseDamage += 5;
-                break;
-            case 4:
                 projectileCount = 3;
                 break;
-            case 5:
-                baseDamage += 5;
+            case 4:
                 projectileCount = 4;
+                break;
+            case 5:
+                projectileCount = 8;
                 break;
         }
     }

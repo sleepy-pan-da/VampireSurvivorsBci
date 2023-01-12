@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -39,7 +40,7 @@ public class EnemySpawner : MonoBehaviour
 
     private void SpawnEnemy()
     {
-        Vector3 spawnPosition = new Vector3(Random.Range(-spawnArea.x/2, spawnArea.x/2),Random.Range(-spawnArea.y/2, spawnArea.y/2), 0);
+        Vector3 spawnPosition = new Vector3(UnityEngine.Random.Range(-spawnArea.x/2, spawnArea.x/2),UnityEngine.Random.Range(-spawnArea.y/2, spawnArea.y/2), 0);
         SpawnIndicator newSpawnIndicator = Instantiate(spawnIndicator, spawnPosition, transform.rotation, parent);
         newSpawnIndicator.EnemySpawned = enemy;
         newSpawnIndicator.Parent = parent;
@@ -50,7 +51,7 @@ public class EnemySpawner : MonoBehaviour
     {
         for (int _=0; _<spawnQty; _++)
         {
-            Vector3 spawnPosition = new Vector3(Random.Range(-spawnArea.x/2, spawnArea.x/2),Random.Range(-spawnArea.y/2, spawnArea.y/2), 0);
+            Vector3 spawnPosition = new Vector3(UnityEngine.Random.Range(-spawnArea.x/2, spawnArea.x/2),UnityEngine.Random.Range(-spawnArea.y/2, spawnArea.y/2), 0);
             SpawnIndicator newSpawnIndicator = Instantiate(spawnIndicator, spawnPosition, transform.rotation, parent);
             newSpawnIndicator.EnemySpawned = enemyType;
             newSpawnIndicator.Parent = parent;
@@ -64,6 +65,8 @@ public class EnemySpawner : MonoBehaviour
         foreach (SpawnInfo spawnInfo in spawnInfoList)
         {
             yield return new WaitForSeconds(spawnInfo.TimeTakenToSpawn);
+            // string spawnDetails = String.Format("Spawned wave {0}", spawnInfo.name);
+            Debug.Log(String.Format("Spawned wave {0}", spawnInfo.name));
             for (int i=0; i<spawnInfo.EnemyTypes.Count; i++)
             {
                 SpawnEnemy(spawnInfo.EnemyTypes[i], spawnInfo.SpawnQty[i]);

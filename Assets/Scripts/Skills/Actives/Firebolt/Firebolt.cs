@@ -11,7 +11,7 @@ public class Firebolt : ActiveSpecifications
     private int baseDamage = 45;
     private float cooldown = 1.5f;
     private float projectileInterval = 0.1f;
-    private float baseSpeed = 7f;
+    private float baseSpeed = 14f;
     private float knockbackStrength = 160f;
     private int pierce;
     
@@ -75,15 +75,14 @@ public class Firebolt : ActiveSpecifications
                 baseDamage += 10;
                 break;
             case 3:
-                baseDamage += 10;
-                baseSpeed *= 1.2f;
+                cooldown = 1f;
                 break;
             case 4:
                 baseDamage += 10;
                 break;
             case 5:
-                baseDamage += 10;
-                baseSpeed *= 1.2f;
+                baseSpeed = 28f;
+                cooldown = 0.5f;
                 break;
         }
     }

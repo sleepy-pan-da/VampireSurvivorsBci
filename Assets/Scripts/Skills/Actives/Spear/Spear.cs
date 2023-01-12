@@ -84,7 +84,7 @@ public class Spear : ActiveSpecifications
                 break;
             case 5:
                 baseSpeed *= 1.1f;
-                cooldown = 0.6f;
+                cooldown = 0.5f;
                 baseDamage = 20;
                 break;
         }

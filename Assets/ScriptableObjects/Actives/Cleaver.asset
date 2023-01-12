@@ -17,9 +17,9 @@ MonoBehaviour:
   Description:
   - Fires opposite faced direction
   - Fires 1 more cleaver
-  - Base damage up by 5
   - Fires 1 more cleaver
-  - Fires 1 more cleaver. Base damage up by 5
+  - Fires 1 more cleaver
+  - Fires 4 more cleavers
   MaxLevel: 5
   SkillPrefab: {fileID: 1019744331450832205, guid: 55143da1815b34c46982d8aaa6b13edc,
     type: 3}
