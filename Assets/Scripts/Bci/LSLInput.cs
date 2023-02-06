@@ -1,8 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 using LSL;
-using Assets.Scripts;
 
 public class LSLInput : MonoBehaviour
 {
@@ -12,6 +12,7 @@ public class LSLInput : MonoBehaviour
 
     [HideInInspector]
     public ExtractedDataFromRawEeg latestExtractedData = new ExtractedDataFromRawEeg();
+    public static event Action<ExtractedDataFromRawEeg> OnPullEEGData;
 
     //public float[] latestFrequencyBandsData = new float[5]; // Delta, Theta, Alpha, Beta, Concentration ratio (Beta/Theta)
 
@@ -52,9 +53,11 @@ public class LSLInput : MonoBehaviour
                 if (lastTimeStamp != 0.0)
                 {
                     ProcessData(sample, lastTimeStamp);
+                    OnPullEEGData?.Invoke(latestExtractedData);
                     while ((lastTimeStamp = streamInlet.pull_sample(sample, 0.0f)) != 0)
                     {
                         ProcessData(sample, lastTimeStamp);
+                        OnPullEEGData?.Invoke(latestExtractedData);
                     }
                 }
             }

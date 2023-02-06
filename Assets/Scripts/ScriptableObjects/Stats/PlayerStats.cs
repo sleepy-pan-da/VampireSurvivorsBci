@@ -14,6 +14,7 @@ public class PlayerStats : ScriptableObject
     public int CurrentExp;
     public int ExpNeededToLevel;
     public float DamageMultiplier;
+    public float ConcentrationRatio;
     public int HpRegen;
     public float PickupRadiusMultiplier;
     public float CooldownReduction = 1f;
@@ -25,6 +26,9 @@ public class PlayerStats : ScriptableObject
     public static event Action OnChangedMovementSpeedMultiplier;
     public static event Action OnChangedPickupRadiusMultiplier;
     public static event Action OnLeveledUp;
+
+    private const float concentrationMultiplier = 1.2f;
+
 
     public void GainHp(int hpGained)
     {
@@ -87,7 +91,12 @@ public class PlayerStats : ScriptableObject
     // Helper method for active skills
     public int ComputeDamageFromMultiplier(int baseDamage)
     {
+        if (ConcentrationRatio >= 1) return Mathf.CeilToInt(baseDamage * DamageMultiplier * concentrationMultiplier);
         return Mathf.CeilToInt(baseDamage * DamageMultiplier);
     }
 
+    public void SetConcentrationRatio(float newConcentrationRatio)
+    {
+        ConcentrationRatio = newConcentrationRatio;
+    }
 }

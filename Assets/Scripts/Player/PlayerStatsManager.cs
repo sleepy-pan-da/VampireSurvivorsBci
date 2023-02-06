@@ -4,21 +4,25 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
 using System;
+using TMPro;
 
 public class PlayerStatsManager : MonoBehaviour
 {
+    public static event Action OnDeath;
+    
     [SerializeField]
     private PlayerStats statsToInsert;
     public static PlayerStats Stats;
     [SerializeField]
     private PlayerStats statsDebug;
-    public static event Action OnDeath;
 
     private Slider healthBarSlider;
     [SerializeField]
     private Slider expBarSlider;
     private TopdownMovement topdownMovement;
     private Magnet magnet;
+    
+    private TextMeshProUGUI concentrationText;
 
     private void Start()
     {
@@ -38,6 +42,8 @@ public class PlayerStatsManager : MonoBehaviour
         magnet = transform.Find("MagnetCollider").GetComponent<Magnet>();
         magnet.setCircleColliderRadius();
 
+        concentrationText = transform.Find("Canvas/ConcentrationText").GetComponent<TextMeshProUGUI>();
+
         // Subscribed classes
         CollisionManager collisionManager = GetComponent<CollisionManager>();
         collisionManager.OnTakenDamageFromEnemy += TakeDamage;
@@ -47,6 +53,7 @@ public class PlayerStatsManager : MonoBehaviour
         PlayerStats.OnChangedMaxHp += UpdateHealthBarMaxValue;
         PlayerStats.OnChangedMovementSpeedMultiplier += topdownMovement.SetMovementBasedOnStats;
         PlayerStats.OnChangedPickupRadiusMultiplier += magnet.setCircleColliderRadius;
+        LSLInput.OnPullEEGData += UpdatePlayerConcentration;
 
         StartCoroutine(RegenHp());
     }
@@ -107,6 +114,15 @@ public class PlayerStatsManager : MonoBehaviour
     private void UpdateExpBar(int newValue)
     {
         expBarSlider.value = newValue;
+    }
+
+    private void UpdatePlayerConcentration(ExtractedDataFromRawEeg newEEGData)
+    {
+        // Debug.Log(newEEGData.ConcentrationRatio);
+        if (newEEGData == null) return;
+        Stats.SetConcentrationRatio(newEEGData.ConcentrationRatio);
+        concentrationText.text = Stats.ConcentrationRatio.ToString();
+        // Update player's aura sprite
     }
 
 }
