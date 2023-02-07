@@ -80,6 +80,8 @@ public class LSLInput : MonoBehaviour
         latestExtractedData.Beta = frequencyBands[3];
 
         if (latestExtractedData.Theta <= 0) latestExtractedData.Theta = 0.1f;
-        latestExtractedData.ConcentrationRatio = (latestExtractedData.Beta * 1.2f) / (latestExtractedData.Theta);
+        // latestExtractedData.ConcentrationRatio = (latestExtractedData.Beta * 1.2f) / (latestExtractedData.Theta);
+        latestExtractedData.ConcentrationRatio = (latestExtractedData.Beta * 1f) / (latestExtractedData.Theta);
+
     }
 }

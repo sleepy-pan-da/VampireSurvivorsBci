@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.Events;
 using System;
 using TMPro;
+using UnityEngine.Experimental.Rendering.Universal;
 
 public class PlayerStatsManager : MonoBehaviour
 {
@@ -21,6 +22,7 @@ public class PlayerStatsManager : MonoBehaviour
     private Slider expBarSlider;
     private TopdownMovement topdownMovement;
     private Magnet magnet;
+    private Light2D aura; 
     
     private TextMeshProUGUI concentrationText;
 
@@ -42,6 +44,7 @@ public class PlayerStatsManager : MonoBehaviour
         magnet = transform.Find("MagnetCollider").GetComponent<Magnet>();
         magnet.setCircleColliderRadius();
 
+        aura = transform.Find("Aura").GetComponent<Light2D>();
         concentrationText = transform.Find("Canvas/ConcentrationText").GetComponent<TextMeshProUGUI>();
 
         // Subscribed classes
@@ -123,6 +126,7 @@ public class PlayerStatsManager : MonoBehaviour
         Stats.SetConcentrationRatio(newEEGData.ConcentrationRatio);
         concentrationText.text = Stats.ConcentrationRatio.ToString();
         // Update player's aura sprite
+        aura.intensity = 2.3f*Stats.ConcentrationRatio + 0.7f; // y = 2.3x + 0.7
     }
 
 }
