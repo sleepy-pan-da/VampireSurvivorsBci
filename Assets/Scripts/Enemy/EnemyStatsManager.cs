@@ -10,13 +10,13 @@ public class EnemyStatsManager : MonoBehaviour
     public Transform Pickups;
     [SerializeField]
     private GameObject expOrb;
-    private SpriteManager spriteManager;
+    private SimpleFlash simpleFlash;
     public static event Action<int, Vector3> OnTakenDamage;
 
     private void Start()
     {
         Stats = Instantiate(Stats);
-        spriteManager = GetComponent<SpriteManager>();
+        simpleFlash = GetComponent<SimpleFlash>();
     }
 
     private void Update()
@@ -30,7 +30,7 @@ public class EnemyStatsManager : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        if (!WillDieFromDamage(damage)) spriteManager.OnTakeDamage();
+        if (!WillDieFromDamage(damage)) simpleFlash.Flash();
         Stats.CurrentHp = Mathf.Max(0, Stats.CurrentHp - damage);
         if (transform != null) OnTakenDamage?.Invoke(damage, transform.position);
         if (Stats.CurrentHp == 0)

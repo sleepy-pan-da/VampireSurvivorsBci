@@ -22,7 +22,7 @@ public class PlayerStatsManager : MonoBehaviour
     private Slider expBarSlider;
     private TopdownMovement topdownMovement;
     private Magnet magnet;
-    private Light2D aura; 
+    private Aura aura; 
     
     private TextMeshProUGUI concentrationText;
 
@@ -44,7 +44,7 @@ public class PlayerStatsManager : MonoBehaviour
         magnet = transform.Find("MagnetCollider").GetComponent<Magnet>();
         magnet.setCircleColliderRadius();
 
-        aura = transform.Find("Aura").GetComponent<Light2D>();
+        aura = transform.Find("Aura").GetComponent<Aura>();
         concentrationText = transform.Find("Canvas/ConcentrationText").GetComponent<TextMeshProUGUI>();
 
         // Subscribed classes
@@ -121,12 +121,9 @@ public class PlayerStatsManager : MonoBehaviour
 
     private void UpdatePlayerConcentration(ExtractedDataFromRawEeg newEEGData)
     {
-        // Debug.Log(newEEGData.ConcentrationRatio);
         if (newEEGData == null) return;
         Stats.SetConcentrationRatio(newEEGData.ConcentrationRatio);
         concentrationText.text = Stats.ConcentrationRatio.ToString();
-        // Update player's aura sprite
-        aura.intensity = 2.3f*Stats.ConcentrationRatio + 0.7f; // y = 2.3x + 0.7
+        aura.UpdateAura(Stats.ConcentrationRatio);
     }
-
 }

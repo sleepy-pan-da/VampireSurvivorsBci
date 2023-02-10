@@ -2556,6 +2556,7 @@ GameObject:
   m_Component:
   - component: {fileID: 453908143}
   - component: {fileID: 453908144}
+  - component: {fileID: 453908145}
   m_Layer: 0
   m_Name: Aura
   m_TagString: Untagged
@@ -2592,7 +2593,7 @@ MonoBehaviour:
   m_LightType: 3
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.206
-  m_Color: {r: 0, g: 0.4148717, b: 1, a: 1}
+  m_Color: {r: 0, g: 1, b: 0.105882354, a: 1}
   m_Intensity: 0.7
   m_LightVolumeOpacity: 0
   m_ApplyToSortingLayers: abec0898d3db5a1900000000d5d0a8b0
@@ -2610,7 +2611,7 @@ MonoBehaviour:
   m_PointLightQuality: 1
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
-  m_ShapeLightParametricRadius: 1
+  m_ShapeLightParametricRadius: 2.07
   m_ShapeLightFalloffSize: 0.5
   m_ShapeLightFalloffOffset: {x: 0, y: 0}
   m_ShapePath:
@@ -2618,6 +2619,20 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+--- !u!114 &453908145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 453908142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 359997cd2bad36648b6457a6d6abc4da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unfocusedColor: {r: 0, g: 0.5660378, b: 0.059933443, a: 0}
+  focusedColor: {r: 0, g: 0.6949184, b: 1, a: 0}
 --- !u!1 &485309897
 GameObject:
   m_ObjectHideFlags: 0
@@ -14695,7 +14710,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1992882273
 RectTransform:
   m_ObjectHideFlags: 0

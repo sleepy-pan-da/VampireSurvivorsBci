@@ -46,7 +46,8 @@ public class TopdownMovement : MonoBehaviour
             latestDirectionFaced = direction;
         }
 
-        velocity = Vector3.MoveTowards(velocity, maxMoveSpeed * direction, acceleration * Time.deltaTime);
+        float movementSpeedMultiplierFromConcentration = PlayerStatsManager.Stats.ComputeMovementSpeedMultiplierFromConcentration();
+        velocity = Vector3.MoveTowards(velocity, maxMoveSpeed * direction * movementSpeedMultiplierFromConcentration, acceleration * Time.deltaTime);
         rb.velocity = velocity;
     }
 

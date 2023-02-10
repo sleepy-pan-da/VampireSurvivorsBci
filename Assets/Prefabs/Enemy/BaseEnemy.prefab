@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 1895128876322567916}
   - component: {fileID: 339765975}
   - component: {fileID: 232781684820675755}
-  - component: {fileID: 6014257810218792704}
   - component: {fileID: 1581422414026333301}
   - component: {fileID: 714126682773442929}
+  - component: {fileID: 7284364981838595720}
   m_Layer: 0
   m_Name: BaseEnemy
   m_TagString: Enemy
@@ -123,18 +123,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!114 &6014257810218792704
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1895128876322567917}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7a563eddd6b9ae4bba4d21d49883c94, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1581422414026333301
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -166,3 +154,17 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &7284364981838595720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1895128876322567917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb3c5acf9c784a4408b6ad5439fb4df2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashMaterial: {fileID: 2100000, guid: d08de7591da6f9c4490b10f38d7309d9, type: 2}
+  duration: 0.1
