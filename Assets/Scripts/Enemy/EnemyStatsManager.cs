@@ -12,6 +12,7 @@ public class EnemyStatsManager : MonoBehaviour
     private GameObject expOrb;
     private SimpleFlash simpleFlash;
     public static event Action<int, Vector3> OnTakenDamage;
+    public static event Action<string> OnTakenDamageSfx;
 
     private void Start()
     {
@@ -30,6 +31,7 @@ public class EnemyStatsManager : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        OnTakenDamageSfx?.Invoke("EnemyHit");
         if (!WillDieFromDamage(damage)) simpleFlash.Flash();
         Stats.CurrentHp = Mathf.Max(0, Stats.CurrentHp - damage);
         if (transform != null) OnTakenDamage?.Invoke(damage, transform.position);

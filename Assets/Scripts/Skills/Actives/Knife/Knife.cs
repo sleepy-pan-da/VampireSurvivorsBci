@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Knife : ActiveSpecifications
 {
+    
     [SerializeField]
     private KnifeInstance knife;
     [SerializeField]

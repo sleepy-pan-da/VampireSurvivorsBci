@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class FireboltInstance : MonoBehaviour
 {
+    public static event Action<string> OnFireFireboltSfx;
     private Rigidbody2D rb;
     private int damage;
     private float knockbackStrength;
@@ -15,6 +17,7 @@ public class FireboltInstance : MonoBehaviour
 
     public void fire(Vector3 direction, int damage, float speed, float knockbackStrength)
     {
+        OnFireFireboltSfx?.Invoke("Firebolt");
         Vector2 velocity = direction * speed;
         transform.Rotate(0f, 0f, Vector3.SignedAngle(Vector3.right, direction, Vector3.forward));
         rb.velocity = velocity;

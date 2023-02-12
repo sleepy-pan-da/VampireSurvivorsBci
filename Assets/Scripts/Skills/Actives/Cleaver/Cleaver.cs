@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Cleaver : ActiveSpecifications
-{
+{   
     [SerializeField]
     private CleaverInstance cleaver;
     private TopdownMovement playerTopdownMovement;

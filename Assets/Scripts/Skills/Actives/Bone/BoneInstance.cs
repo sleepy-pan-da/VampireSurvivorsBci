@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using System;
 
 public class BoneInstance : MonoBehaviour
 {
@@ -17,6 +18,7 @@ public class BoneInstance : MonoBehaviour
 
     public void fire(Vector3 direction, int damage, float speed, float knockbackStrength, int bounceRemaining)
     {
+        
         Vector2 velocity = direction * speed;
         transform.Rotate(0f, 0f, Vector3.SignedAngle(Vector3.right, direction, Vector3.forward));
         rb.velocity = velocity;

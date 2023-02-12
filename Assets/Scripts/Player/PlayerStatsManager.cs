@@ -63,6 +63,7 @@ public class PlayerStatsManager : MonoBehaviour
 
     private void TakeDamage(int damage)
     {
+        
         Stats.TakeDamage(damage);
         UpdateHealthBar(Stats.CurrentHp);
         if (Stats.CurrentHp == 0)

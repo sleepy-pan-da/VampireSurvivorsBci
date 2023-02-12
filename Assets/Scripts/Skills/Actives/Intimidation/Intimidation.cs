@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using ActiveSkills.Intimidation;
+using System;
 
 public class Intimidation : ActiveSpecifications
 {
@@ -9,6 +10,7 @@ public class Intimidation : ActiveSpecifications
     private Manager manager;
     private int baseDamage = 8;
     private float cooldown = 0.5f;
+
     // TODO: change skill's aoe from playerstat's aoe modifier?
 
     private void Start()
@@ -35,6 +37,8 @@ public class Intimidation : ActiveSpecifications
 
     private void DamageNearbyEnemies()
     {
+        if (nearbyEnemies.Count == 0) return;
+
         int damage = PlayerStatsManager.Stats.ComputeDamageFromMultiplier(baseDamage);
         // this list is needed as an exception will be thrown if the set's contents are being deleted in the midst of iteration
         List<EnemyStatsManager> toRemoveFromSet = new List<EnemyStatsManager>();

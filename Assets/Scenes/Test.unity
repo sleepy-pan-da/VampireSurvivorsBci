@@ -14827,6 +14827,113 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1992882272}
   m_CullTransparentMesh: 1
+--- !u!1 &2043650125
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2043650128}
+  - component: {fileID: 2043650126}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2043650126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2043650125}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7713120d6fc0c0447bd91ee4420a8d38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: EnemyHit
+    clip: {fileID: 8300000, guid: 51bfd6915f9fb2b449d8fe8ac8a819da, type: 3}
+    volume: 1
+    pitch: 1
+    isLoop: 0
+    cannotBeInterrupted: 0
+    source: {fileID: 0}
+  - name: CollectCoin
+    clip: {fileID: 8300000, guid: a0affa187e05f7647b704e4f235641cd, type: 3}
+    volume: 0.1
+    pitch: 1
+    isLoop: 0
+    cannotBeInterrupted: 0
+    source: {fileID: 0}
+  - name: TakingDamage
+    clip: {fileID: 8300000, guid: 48777f586539bd748b9f39a34c2a2bcb, type: 3}
+    volume: 0.5
+    pitch: 1
+    isLoop: 1
+    cannotBeInterrupted: 1
+    source: {fileID: 0}
+  - name: Sword
+    clip: {fileID: 8300000, guid: 4a6377728f8b1744c86278265a405f67, type: 3}
+    volume: 0.3
+    pitch: 0.5
+    isLoop: 0
+    cannotBeInterrupted: 0
+    source: {fileID: 0}
+  - name: Knife
+    clip: {fileID: 8300000, guid: 4a6377728f8b1744c86278265a405f67, type: 3}
+    volume: 0.3
+    pitch: 1
+    isLoop: 0
+    cannotBeInterrupted: 0
+    source: {fileID: 0}
+  - name: Cleaver
+    clip: {fileID: 8300000, guid: 4a6377728f8b1744c86278265a405f67, type: 3}
+    volume: 0.3
+    pitch: 1
+    isLoop: 0
+    cannotBeInterrupted: 0
+    source: {fileID: 0}
+  - name: Spear
+    clip: {fileID: 8300000, guid: a849bf8b4ef060349b27c18b35c06899, type: 3}
+    volume: 1
+    pitch: 1
+    isLoop: 0
+    cannotBeInterrupted: 0
+    source: {fileID: 0}
+  - name: Hammer
+    clip: {fileID: 8300000, guid: 1c84d628711b17d48afcf0a0c536cd80, type: 3}
+    volume: 0.5
+    pitch: 1
+    isLoop: 0
+    cannotBeInterrupted: 0
+    source: {fileID: 0}
+  - name: Firebolt
+    clip: {fileID: 8300000, guid: 96b7bef71eecf88499e253142b32d504, type: 3}
+    volume: 0.5
+    pitch: 1
+    isLoop: 0
+    cannotBeInterrupted: 0
+    source: {fileID: 0}
+--- !u!4 &2043650128
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2043650125}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.1645439, y: 2.7728715, z: -6.569094}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1540185759033194915
 PrefabInstance:
   m_ObjectHideFlags: 0

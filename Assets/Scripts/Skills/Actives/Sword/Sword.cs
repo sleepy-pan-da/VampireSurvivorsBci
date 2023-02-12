@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class Sword : ActiveSpecifications
 {
+    public static event Action<string> OnSwingSwordSfx;
     [SerializeField]
     private SwordInstance sword;
     private TopdownMovement playerTopdownMovement;
@@ -19,6 +21,7 @@ public class Sword : ActiveSpecifications
 
     protected override void Spawn()
     { 
+        OnSwingSwordSfx?.Invoke("Sword");
         Quaternion swordRotation = sword.transform.rotation;
         bool isFacingLeft = playerTopdownMovement.isFacingLeft();
         if (isFacingLeft) swordRotation.eulerAngles *= -1;

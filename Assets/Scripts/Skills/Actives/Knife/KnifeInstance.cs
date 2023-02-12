@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class KnifeInstance : MonoBehaviour
 {
+    public static event Action<string> OnFireKnifeSfx;
     private SpriteRenderer spriteRenderer;
     private Rigidbody2D rb;
     private int damage;
@@ -17,6 +19,7 @@ public class KnifeInstance : MonoBehaviour
 
     public void fire(int damage, float speed, bool isFacingLeft, float knockbackStrength)
     {
+        OnFireKnifeSfx?.Invoke("Knife");
         Vector2 velocity = new Vector2(speed, 0); 
         if (isFacingLeft)
         {

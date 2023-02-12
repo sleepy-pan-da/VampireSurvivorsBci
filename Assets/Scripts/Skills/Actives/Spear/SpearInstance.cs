@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class SpearInstance : MonoBehaviour
 {
+    public static event Action<string> OnFireSpearSfx;
     private Rigidbody2D rb;
     private int damage;
     private float knockbackStrength;
@@ -24,6 +26,7 @@ public class SpearInstance : MonoBehaviour
         seq.append(() => {
             transform.parent = skillInstances;
             rb.velocity = direction * speed;
+            OnFireSpearSfx?.Invoke("Spear");
         });
     }
 

@@ -77,6 +77,11 @@ public class UpgradeUI : MonoBehaviour
         ToggleUI(true);
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.R)) Open();
+    }
+
     // for testing purposes
     IEnumerator MockSelectSkillEnumerator(string skillName)
     {

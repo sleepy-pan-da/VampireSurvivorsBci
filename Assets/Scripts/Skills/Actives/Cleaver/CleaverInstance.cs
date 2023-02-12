@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class CleaverInstance : MonoBehaviour
 {
+    public static event Action<string> OnFireCleaverSfx;
     [HideInInspector]
     public int damage;
     [HideInInspector]
@@ -39,6 +41,7 @@ public class CleaverInstance : MonoBehaviour
             cleaverChild.rb.velocity = velocity;
             cleaverChild.setCanRotate(rotationAxis * -1);
             cleaverChild.enableCapsuleCollider(true);
+            OnFireCleaverSfx?.Invoke("Cleaver");
         });
     }
 }
