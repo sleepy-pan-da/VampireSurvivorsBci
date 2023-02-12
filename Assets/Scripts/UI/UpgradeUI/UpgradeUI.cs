@@ -7,9 +7,11 @@ public class UpgradeUI : MonoBehaviour
 {
     // Contains code for selecting skills upon leveling up via UI
     public static event Action<string> OnSelectedSkill;
+    public static event Action OnSelectedFirstSkill;
     private bool testingSkills = false;
     private CanvasGroup canvasGroup;
     private SkillGenerator skillGenerator;
+    private bool haveSelectedFirstSkill = false;
 
     private void Awake()
     {
@@ -101,6 +103,11 @@ public class UpgradeUI : MonoBehaviour
 
     private void SelectSkill(string skillName)
     {
+        if (!haveSelectedFirstSkill)
+        {
+            haveSelectedFirstSkill = true;
+            OnSelectedFirstSkill?.Invoke();
+        }
         OnSelectedSkill?.Invoke(skillName);
         ToggleUI(false);
         Time.timeScale = 1;

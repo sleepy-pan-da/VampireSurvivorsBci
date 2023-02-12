@@ -19,7 +19,7 @@ public class PlayerStatsManager : MonoBehaviour
 
     private Slider healthBarSlider;
     [SerializeField]
-    private Slider expBarSlider;
+    private ExpBar expBarSlider;
     private TopdownMovement topdownMovement;
     private Magnet magnet;
     private Aura aura; 
@@ -37,7 +37,7 @@ public class PlayerStatsManager : MonoBehaviour
         UpdateHealthBar(healthBarSlider.maxValue);
 
         // Initialising exp bar
-        if (expBarSlider) InitialiseExpBar();
+        if (expBarSlider) expBarSlider.Initialise(Stats);
 
         topdownMovement = GetComponent<TopdownMovement>();
 
@@ -91,11 +91,12 @@ public class PlayerStatsManager : MonoBehaviour
     private void GainExp(int expGained)
     {
         Stats.GainExp(expGained);
-        UpdateExpBar(Stats.CurrentExp);
+        expBarSlider.UpdateExp(Stats.CurrentExp);
         if (Stats.CurrentExp == Stats.ExpNeededToLevel)
         {
             Stats.LevelUp();
-            InitialiseExpBar();
+            // InitialiseExpBar();
+            expBarSlider.Initialise(Stats);
         }
     }
 
@@ -109,16 +110,16 @@ public class PlayerStatsManager : MonoBehaviour
         healthBarSlider.maxValue = (float)Stats.MaxHp;
     }
 
-    private void InitialiseExpBar()
-    {
-        expBarSlider.maxValue = Stats.ExpNeededToLevel;
-        UpdateExpBar(0);
-    }
+    // private void InitialiseExpBar()
+    // {
+    //     expBarSlider.maxValue = Stats.ExpNeededToLevel;
+    //     UpdateExpBar(0);
+    // }
 
-    private void UpdateExpBar(int newValue)
-    {
-        expBarSlider.value = newValue;
-    }
+    // private void UpdateExpBar(int newValue)
+    // {
+    //     expBarSlider.value = newValue;
+    // }
 
     private void UpdatePlayerConcentration(ExtractedDataFromRawEeg newEEGData)
     {
