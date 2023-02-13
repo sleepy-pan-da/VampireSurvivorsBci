@@ -26,6 +26,11 @@ public class EnemySpawner : MonoBehaviour
         StartCoroutine(StartSpawnWave());
     }
 
+    private void OnDisable()
+    {
+        PlayerStatsManager.OnDeath -= StopSpawning;
+    }
+
     // For debugging
     private void StartSpawning()
     {

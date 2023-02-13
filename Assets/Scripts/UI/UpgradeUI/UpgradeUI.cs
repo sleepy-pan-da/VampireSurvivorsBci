@@ -71,6 +71,12 @@ public class UpgradeUI : MonoBehaviour
         Open();
     }
 
+    private void OnDisable()
+    {
+        SkillPanel.OnPressedSkillPanel -= SelectSkill;
+        PlayerStats.OnLeveledUp -= Open;
+    }
+
     private void Open()
     {
         // Pick 3 skills to choose from

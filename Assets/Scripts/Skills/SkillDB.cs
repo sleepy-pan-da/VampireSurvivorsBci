@@ -21,6 +21,11 @@ public class SkillDB : MonoBehaviour
         activeSkillsManager = activeSkillsHeld.GetComponent<ActiveSkillsManager>();
     }
 
+    private void OnDisable()
+    {
+        Loadout.OnUpdatedSkillLevel -= SetUpSkill;
+    }
+
     private void SetUpSkill(string updatedSkill, int skillLevel)
     {
         if (!skillDict.ContainsKey(updatedSkill))

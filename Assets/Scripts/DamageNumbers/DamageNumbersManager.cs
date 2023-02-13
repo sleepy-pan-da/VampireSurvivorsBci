@@ -8,10 +8,15 @@ public class DamageNumbersManager : MonoBehaviour
     private DamageNumber damageNumberPrefab;
     private Transform instanceParent;
 
-    void Start()
+    private void Start()
     {
         instanceParent = transform.Find("Canvas");
         EnemyStatsManager.OnTakenDamage += SpawnDamageNumber;
+    }
+
+    private void OnDisable()
+    {
+        EnemyStatsManager.OnTakenDamage -= SpawnDamageNumber;
     }
 
     private void SpawnDamageNumber(int damageNumber, Vector3 position)

@@ -7,7 +7,7 @@ public class AudioManager : MonoBehaviour
 {
     public Sound[] sounds;
 
-    void Awake()
+    private void Awake()
     {
         foreach (Sound s in sounds)
         {
@@ -33,6 +33,22 @@ public class AudioManager : MonoBehaviour
         FireboltInstance.OnFireFireboltSfx += PlaySfx;
     }
     
+    private void OnDisable()
+    {
+        EnemyStatsManager.OnTakenDamageSfx -= PlaySfx;
+        Collector.OnCollectCoinSfx -= PlaySfx;
+
+        CollisionManager.OnTakingDamageSfx -= PlaySfx;
+        CollisionManager.OnStopTakingDamage -= StopSfx;
+
+        Sword.OnSwingSwordSfx -= PlaySfx;
+        KnifeInstance.OnFireKnifeSfx -= PlaySfx;
+        CleaverInstance.OnFireCleaverSfx -= PlaySfx;
+        SpearInstance.OnFireSpearSfx -= PlaySfx;
+        HammerChild.OnHitHammerSfx -= PlaySfx;
+        FireboltInstance.OnFireFireboltSfx -= PlaySfx;
+    }
+
     private void PlaySfx(string source)
     {
         Sound s = Array.Find(sounds, sound => sound.name == source);

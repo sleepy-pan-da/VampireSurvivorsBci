@@ -2,9 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System;
 
 public class TimeRemaining : MonoBehaviour
 {
+    public static event Action OnFinished;
+
     [SerializeField]
     private float timeInSeconds = 600;
     [SerializeField]
@@ -14,6 +17,11 @@ public class TimeRemaining : MonoBehaviour
     private void Start()
     {
         PlayerStatsManager.OnDeath += Disable;
+    }
+
+    private void OnDisable()
+    {
+        PlayerStatsManager.OnDeath -= Disable;
     }
 
     private void Disable()
@@ -26,7 +34,12 @@ public class TimeRemaining : MonoBehaviour
         if (isEnabled)
         {
             timeInSeconds -= Time.deltaTime;
-            if (timeInSeconds <= 0) timeInSeconds = 0;
+            if (timeInSeconds <= 0)
+            {
+                timeInSeconds = 0;
+                Disable();
+                OnFinished?.Invoke();
+            } 
             DisplayTime();
         }
     }

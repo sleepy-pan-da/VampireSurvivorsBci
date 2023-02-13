@@ -17,6 +17,11 @@ public class Loadout : MonoBehaviour
         UpgradeUI.OnSelectedSkill += UpdateSkillLevels;
     }
     
+    private void OnDisable()
+    {
+        UpgradeUI.OnSelectedSkill -= UpdateSkillLevels;
+    }
+    
     private void UpdateSkillLevels(string updatedSkill)
     {
         if (skillLevels.ContainsKey(updatedSkill))

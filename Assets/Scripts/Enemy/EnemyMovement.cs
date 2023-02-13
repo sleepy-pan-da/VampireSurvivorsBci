@@ -24,14 +24,33 @@ public class EnemyMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         knockbackManager = GetComponent<KnockbackManager>();
 
-        knockbackManager.OnBegin += () => {enabled = false;};
-        knockbackManager.OnDone += () => {enabled = true;};
+        knockbackManager.OnBegin += Disable;
+        knockbackManager.OnDone += Enable;
 
+        ScreenManager.OnReset += Reset;
+    }
+
+    private void Reset()
+    {
+        Debug.Log("Enemy movement resetted");
+        knockbackManager.OnBegin -= Disable;
+        knockbackManager.OnDone -= Enable;
+        ScreenManager.OnReset -= Reset;
     }
 
     private void FixedUpdate()
     {
         FollowPlayer();
+    }
+
+    private void Disable()
+    {
+        enabled = false;
+    }
+
+    private void Enable()
+    {
+        enabled = true;
     }
 
     private void FollowPlayer()

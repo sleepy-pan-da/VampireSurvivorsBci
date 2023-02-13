@@ -10,6 +10,7 @@ public class TutorialInstructions : MonoBehaviour
     private TextMeshProUGUI textMeshPro;
     private Color origColor;
     private Color fadeoutColor;
+    private bool toReset = false;
 
     private void Start()
     {
@@ -18,6 +19,12 @@ public class TutorialInstructions : MonoBehaviour
         UpgradeUI.OnSelectedFirstSkill += Show;
         SetUpColors();
         gameObject.SetActive(false);
+        toReset = true;
+    }
+
+    private void OnDisable()
+    {
+        if (toReset) UpgradeUI.OnSelectedFirstSkill -= Show;
     }
 
     private void SetUpColors()

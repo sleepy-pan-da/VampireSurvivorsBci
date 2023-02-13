@@ -23,7 +23,7 @@ public class PlayerStatsManager : MonoBehaviour
     private TopdownMovement topdownMovement;
     private Magnet magnet;
     private Aura aura; 
-    
+    private CollisionManager collisionManager;
     private TextMeshProUGUI concentrationText;
 
     private void Start()
@@ -47,18 +47,27 @@ public class PlayerStatsManager : MonoBehaviour
         aura = transform.Find("Aura").GetComponent<Aura>();
         concentrationText = transform.Find("Canvas/ConcentrationText").GetComponent<TextMeshProUGUI>();
 
+        collisionManager = GetComponent<CollisionManager>();
+        
         // Subscribed classes
-        CollisionManager collisionManager = GetComponent<CollisionManager>();
         collisionManager.OnTakenDamageFromEnemy += TakeDamage;
-
         ExpOrb.OnCollectedExpOrb += GainExp;
-
         PlayerStats.OnChangedMaxHp += UpdateHealthBarMaxValue;
         PlayerStats.OnChangedMovementSpeedMultiplier += topdownMovement.SetMovementBasedOnStats;
         PlayerStats.OnChangedPickupRadiusMultiplier += magnet.setCircleColliderRadius;
         LSLInput.OnPullEEGData += UpdatePlayerConcentration;
 
         StartCoroutine(RegenHp());
+    }
+
+    private void OnDisable()
+    {
+        collisionManager.OnTakenDamageFromEnemy -= TakeDamage;
+        ExpOrb.OnCollectedExpOrb -= GainExp;
+        PlayerStats.OnChangedMaxHp -= UpdateHealthBarMaxValue;
+        PlayerStats.OnChangedMovementSpeedMultiplier -= topdownMovement.SetMovementBasedOnStats;
+        PlayerStats.OnChangedPickupRadiusMultiplier -= magnet.setCircleColliderRadius;
+        LSLInput.OnPullEEGData -= UpdatePlayerConcentration;
     }
 
     private void TakeDamage(int damage)

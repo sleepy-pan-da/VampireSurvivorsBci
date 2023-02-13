@@ -59,7 +59,6 @@ public class SkillPanel : MonoBehaviour
 
     private void TaskOnClick()
     {
-        // Debug.Log($"Clicked on: {skillName.text}");
         OnPressedSkillPanel?.Invoke(skillName.text);
     }
 }
