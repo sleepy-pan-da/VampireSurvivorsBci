@@ -5,17 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject optionsMenu; 
     public void PlayGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
-    }
-
-    public void Options()
-    {
-        optionsMenu.SetActive(true);
-        gameObject.SetActive(false);
     }
 
     public void QuitGame()

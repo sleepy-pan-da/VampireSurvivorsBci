@@ -71,7 +71,7 @@ public class EnemySpawner : MonoBehaviour
         {
             yield return new WaitForSeconds(spawnInfo.TimeTakenToSpawn);
             // string spawnDetails = String.Format("Spawned wave {0}", spawnInfo.name);
-            Debug.Log(String.Format("Spawned wave {0}", spawnInfo.name));
+            // Debug.Log(String.Format("Spawned wave {0}", spawnInfo.name));
             for (int i=0; i<spawnInfo.EnemyTypes.Count; i++)
             {
                 SpawnEnemy(spawnInfo.EnemyTypes[i], spawnInfo.SpawnQty[i]);

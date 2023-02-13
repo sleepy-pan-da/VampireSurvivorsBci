@@ -17,7 +17,7 @@ public class SkillGenerator : MonoBehaviour
         List<Skill> res;
         Clear();
 
-        if (loadout.GetCountOfDict() == 0)
+        if (loadout.GetCountOfDict() <= 2)
         {
             // choose only active skills
             res = skillDB.ReturnRandomActiveSkill(3);
@@ -36,16 +36,16 @@ public class SkillGenerator : MonoBehaviour
                 switch(i)
                 {
                     case 0:
-                        Debug.Log("1. Only new skills");
+                        // Debug.Log("1. Only new skills");
                         res = skillDB.ReturnNewRandomSkill(3, loadout.ReturnHeldSkills());
                         break;
                     case 1:
-                        Debug.Log("2. 2 new skills, 1 held skill");
+                        // Debug.Log("2. 2 new skills, 1 held skill");
                         res = skillDB.ReturnNewRandomSkill(2, loadout.ReturnHeldSkills());
                         ChooseHeldSkill(1, res);
                         break;
                     case 2:
-                        Debug.Log("3. 1 new skill, 2 held skill");
+                        // Debug.Log("3. 1 new skill, 2 held skill");
                         res = skillDB.ReturnNewRandomSkill(1, loadout.ReturnHeldSkills());
                         ChooseHeldSkill(2, res);
                         break;

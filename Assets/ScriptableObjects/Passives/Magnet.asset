@@ -15,11 +15,11 @@ MonoBehaviour:
   Name: Magnet
   Icon: {fileID: 21300000, guid: 2217c02aacdb3a24aa18d914848a63d4, type: 3}
   Description:
-  - 'Increase pickup area by 10% '
-  - 'Increase pickup area by 10% '
-  - 'Increase pickup area by 10% '
-  - 'Increase pickup area by 10% '
-  - 'Increase pickup area by 10% '
+  - 'Increase pickup area by 50% '
+  - 'Increase pickup area by 50% '
+  - 'Increase pickup area by 50% '
+  - 'Increase pickup area by 50% '
+  - 'Increase pickup area by 50% '
   MaxLevel: 5
   Specifications: {fileID: 4257425281394592310, guid: 441001d42bdcdcc419c66082662fadc2,
     type: 3}

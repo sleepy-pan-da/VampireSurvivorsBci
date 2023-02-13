@@ -6,7 +6,7 @@ public class MagnetSpecs : PassiveSpecifications
 {
     public override void Compute(int level)
     {
-        float newPickupRadiusMultiplier = PlayerStatsManager.Stats.PickupRadiusMultiplier * 1.1f;
+        float newPickupRadiusMultiplier = PlayerStatsManager.Stats.PickupRadiusMultiplier * 1.5f;
         PlayerStatsManager.Stats.SetPickupRadiusMultiplier(newPickupRadiusMultiplier);
     }
 }
