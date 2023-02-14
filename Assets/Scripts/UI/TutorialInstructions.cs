@@ -16,6 +16,7 @@ public class TutorialInstructions : MonoBehaviour
     {
         rectTransform = transform.Find("Text").GetComponent<RectTransform>();
         textMeshPro = transform.Find("Text").GetComponent<TextMeshProUGUI>();
+        LSLInput.OnHookedUpBci += UpdateBciTutorial;
         UpgradeUI.OnSelectedFirstSkill += Show;
         SetUpColors();
         gameObject.SetActive(false);
@@ -24,7 +25,16 @@ public class TutorialInstructions : MonoBehaviour
 
     private void OnDisable()
     {
-        if (toReset) UpgradeUI.OnSelectedFirstSkill -= Show;
+        if (toReset)
+        {
+            LSLInput.OnHookedUpBci -= UpdateBciTutorial;
+            UpgradeUI.OnSelectedFirstSkill -= Show;
+        } 
+    }
+
+    private void UpdateBciTutorial()
+    {
+        textMeshPro.text = "WASD / Arrow Keys -> Move\nYou can move faster with enough willpower";
     }
 
     private void SetUpColors()

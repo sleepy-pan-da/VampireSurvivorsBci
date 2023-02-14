@@ -13,6 +13,7 @@ public class LSLInput : MonoBehaviour
     [HideInInspector]
     public ExtractedDataFromRawEeg latestExtractedData = new ExtractedDataFromRawEeg();
     public static event Action<ExtractedDataFromRawEeg> OnPullEEGData;
+    public static event Action OnHookedUpBci;
 
     //public float[] latestFrequencyBandsData = new float[5]; // Delta, Theta, Alpha, Beta, Concentration ratio (Beta/Theta)
 
@@ -23,7 +24,12 @@ public class LSLInput : MonoBehaviour
     private int channelCount = 0;
 
 
-    void Update()
+    private void Start()
+    {
+        if (IsPullingDataFromStreamInlet) OnHookedUpBci?.Invoke();
+    }
+
+    private void Update()
     {
         if (IsPullingDataFromStreamInlet)
         {

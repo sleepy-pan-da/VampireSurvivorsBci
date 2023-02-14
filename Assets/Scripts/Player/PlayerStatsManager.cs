@@ -55,6 +55,7 @@ public class PlayerStatsManager : MonoBehaviour
         PlayerStats.OnChangedMaxHp += UpdateHealthBarMaxValue;
         PlayerStats.OnChangedMovementSpeedMultiplier += topdownMovement.SetMovementBasedOnStats;
         PlayerStats.OnChangedPickupRadiusMultiplier += magnet.setCircleColliderRadius;
+        LSLInput.OnHookedUpBci += ShowAura;
         LSLInput.OnPullEEGData += UpdatePlayerConcentration;
 
         StartCoroutine(RegenHp());
@@ -67,6 +68,7 @@ public class PlayerStatsManager : MonoBehaviour
         PlayerStats.OnChangedMaxHp -= UpdateHealthBarMaxValue;
         PlayerStats.OnChangedMovementSpeedMultiplier -= topdownMovement.SetMovementBasedOnStats;
         PlayerStats.OnChangedPickupRadiusMultiplier -= magnet.setCircleColliderRadius;
+        LSLInput.OnHookedUpBci -= ShowAura;
         LSLInput.OnPullEEGData -= UpdatePlayerConcentration;
     }
 
@@ -136,5 +138,12 @@ public class PlayerStatsManager : MonoBehaviour
         Stats.SetConcentrationRatio(newEEGData.ConcentrationRatio);
         concentrationText.text = Stats.ConcentrationRatio.ToString();
         aura.UpdateAura(Stats.ConcentrationRatio);
+    }
+
+    private void ShowAura()
+    {
+        Debug.Log("show aura");
+        Debug.Log(aura);
+        aura.gameObject.SetActive(true);
     }
 }
