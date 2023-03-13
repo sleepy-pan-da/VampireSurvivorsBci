@@ -18,11 +18,11 @@ public class Aura : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    public void UpdateAura(float concentrationRatio)
+    public void UpdateAura(float concentrationBuffer)
     {
         Debug.Log(aura);
-        aura.intensity = 2f*concentrationRatio + 0.7f; // y = 2.3x + 0.7
-        if (concentrationRatio < 1) aura.color = unfocusedColor;
+        aura.intensity = 2f*concentrationBuffer + 1.5f; // y = 2.3x + 1.5
+        if (concentrationBuffer <= 0) aura.color = unfocusedColor;
         else aura.color = focusedColor;
     }
 }

@@ -14,7 +14,7 @@ public class PlayerStats : ScriptableObject
     public int CurrentExp;
     public int ExpNeededToLevel;
     public float DamageMultiplier;
-    public float ConcentrationRatio;
+    public float ConcentrationBuffer;
     public int HpRegen;
     public float PickupRadiusMultiplier;
     public float CooldownReduction = 1f;
@@ -91,18 +91,33 @@ public class PlayerStats : ScriptableObject
     // Helper method for active skills
     public int ComputeDamageFromMultiplier(int baseDamage)
     {
-        // if (ConcentrationRatio >= 1) return Mathf.CeilToInt(baseDamage * DamageMultiplier * concentrationMultiplier);
         return Mathf.CeilToInt(baseDamage * DamageMultiplier);
     }
 
-    public void SetConcentrationRatio(float newConcentrationRatio)
+    public void IncrementConcentrationBuffer(float increment)
     {
-        ConcentrationRatio = newConcentrationRatio;
+        ConcentrationBuffer += increment;
+        ConcentrationBuffer = Mathf.Min(ConcentrationBuffer, 1); // ConcentrationBuffer's max = 1 
     }
 
     public float ComputeMovementSpeedMultiplierFromConcentration()
     {
-        if (ConcentrationRatio >= 1) return concentrationMultiplier;
+        if (ConcentrationBuffer > 0) return concentrationMultiplier;
         return 1;
+    }
+
+    public IEnumerator StartConcentrationBufferLifeSpan()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(0.5f);
+            DecrementConcentrationBuffer(0.25f);
+        }
+    }
+
+    private void DecrementConcentrationBuffer(float decrement)
+    {
+        ConcentrationBuffer -= decrement;
+        ConcentrationBuffer = Mathf.Max(ConcentrationBuffer, 0); // ConcentrationBuffer's min = 0
     }
 }
