@@ -3651,7 +3651,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 359997cd2bad36648b6457a6d6abc4da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unfocusedColor: {r: 0, g: 0.5660378, b: 0.059933443, a: 0}
+  unfocusedColor: {r: 0, g: 1, b: 0.105882354, a: 1}
   focusedColor: {r: 0, g: 0.6949184, b: 1, a: 0}
 --- !u!1 &478975297
 GameObject:
@@ -17610,7 +17610,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 043ded13bdb0ebd439448cc493af79b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsPullingDataFromStreamInlet: 1
+  IsPullingDataFromStreamInlet: 0
   StreamName: OutputToUnity
 --- !u!1 &1918686496
 GameObject:

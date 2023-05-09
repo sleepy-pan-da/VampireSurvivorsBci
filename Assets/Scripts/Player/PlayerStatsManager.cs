@@ -135,7 +135,7 @@ public class PlayerStatsManager : MonoBehaviour
     private void UpdatePlayerConcentration(ExtractedDataFromRawEeg newEEGData)
     {
         if (newEEGData == null) return;
-        if (newEEGData.ConcentrationRatio >= 1.2) Stats.IncrementConcentrationBuffer(0.5f);
+        if (newEEGData.ConcentrationRatio >= 1.05) Stats.IncrementConcentrationBuffer(0.5f);
         
         concentrationText.text = Stats.ConcentrationBuffer.ToString();
         aura.UpdateAura(Stats.ConcentrationBuffer);

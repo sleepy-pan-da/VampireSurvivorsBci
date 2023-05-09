@@ -20,7 +20,7 @@ public class Aura : MonoBehaviour
 
     public void UpdateAura(float concentrationBuffer)
     {
-        Debug.Log(aura);
+        // Debug.Log(aura);
         aura.intensity = 2f*concentrationBuffer + 1.5f; // y = 2.3x + 1.5
         if (concentrationBuffer <= 0) aura.color = unfocusedColor;
         else aura.color = focusedColor;

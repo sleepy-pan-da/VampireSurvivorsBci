@@ -14,7 +14,7 @@ public class LSLInput : MonoBehaviour
     public ExtractedDataFromRawEeg latestExtractedData = new ExtractedDataFromRawEeg();
     public static event Action<ExtractedDataFromRawEeg> OnPullEEGData;
     public static event Action OnHookedUpBci;
-
+    
     //public float[] latestFrequencyBandsData = new float[5]; // Delta, Theta, Alpha, Beta, Concentration ratio (Beta/Theta)
 
     public StreamInlet streamInlet;
@@ -23,7 +23,7 @@ public class LSLInput : MonoBehaviour
     private float[] sample;
     private int channelCount = 0;
 
-
+    
     private void Start()
     {
         if (IsPullingDataFromStreamInlet) OnHookedUpBci?.Invoke();
@@ -35,19 +35,11 @@ public class LSLInput : MonoBehaviour
         {
             if (streamInlet == null)
             {
-
-                //streamInfos = LSL.LSL.resolve_streams();
-
                 streamInfos = LSL.LSL.resolve_stream("name", StreamName, 1, 10.0);
                 if (streamInfos.Length > 0)
                 {
                     streamInlet = new StreamInlet(streamInfos[0]);
-                    //Debug.Log(streamInlet.info().name());
-                    //Debug.Log(streamInlet.info().type());
-                    //Debug.Log(streamInlet.info().hostname());
                     channelCount = streamInlet.info().channel_count();
-                    //Debug.Log(channelCount.ToString());
-                    //Debug.Log(streamInlet.info().nominal_srate().ToString());
                     streamInlet.open_stream();
                 }
             }
@@ -86,7 +78,8 @@ public class LSLInput : MonoBehaviour
         latestExtractedData.Beta = frequencyBands[3];
 
         if (latestExtractedData.Theta <= 0) latestExtractedData.Theta = 0.1f;
-        // latestExtractedData.ConcentrationRatio = (latestExtractedData.Beta * 1.2f) / (latestExtractedData.Theta);
+
+        
         latestExtractedData.ConcentrationRatio = (latestExtractedData.Beta * 1f) / (latestExtractedData.Theta);
 
     }
